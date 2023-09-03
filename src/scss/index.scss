@@ -1,3 +1,6 @@
-$body-bg: rgb(185, 74, 74);
-@import "/src/scss/variables";
+body {
+  background-color: green;
+}
+
+@import "../src/scss/variables";
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
