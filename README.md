@@ -1,2 +1,2 @@
 # css-frameworks-ca
-This is  mock-up scial application called alien social
+This is a mock-up social application called alien social
