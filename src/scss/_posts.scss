@@ -1,0 +1,7 @@
+.post {
+  border: solid 2px green;
+
+  &:hover {
+    border-color: white;
+  }
+}

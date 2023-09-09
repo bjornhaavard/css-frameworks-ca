@@ -1,49 +1,86 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<html lang="en" data-bs-theme="dark" class="h-100">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <title>Alien Social | Profile page</title>
     <link rel="stylesheet" href="/dist/css/index.css" />
-</head>
-<body>
-    <div class="container">
-        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-          <a href="/index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-            <span class="fs-4">👽</span>
-          </a>
-          <ul class="nav nav-pills">
-            <!-- <li class="nav-item"><a href="/index.html" class="nav-link">Home</a></li> -->
-            <li class="nav-item"><a href="/posts/" class="nav-link">Posts</a></li>
-            <li class="nav-item"><a href="#" class="nav-link active" aria-current="page"">Profile</a></li>
-            
-          </ul>
-        </header>
-      </div>
-      <section class="h-100 gradient-custom-2">
+  </head>
+  <body class="d-flex flex-column h-100">
+    <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary rounded" aria-label="Eleventh navbar example">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/index.html">👽</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarsExample09"
+            aria-controls="navbarsExample09"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarsExample09">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav nav-pills">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/index.html">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/posts/index.html">Posts</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-disabled="true" href="/profile/index.html">Profile</a>
+              </li>
+            </ul>
+            <form role="search">
+              <input class="form-control" type="search" placeholder="Search" aria-label="Search" />
+            </form>
+          </div>
+        </div>
+      </nav>
+      <!-- <a href="/index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+          <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+          <span class="fs-4">👽</span>
+        </a>
+        <ul class="nav nav-pills">
+          <li class="nav-item"><a href="/index.html" class="nav-link">Login</a></li>
+          <li class="nav-item"><a href="/posts/" class="nav-link">Posts</a></li>
+          <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Profile</a></li>
+        </ul> -->
+    </header>
+
+    <main class="flex-shrink-0">
+      <section class="container px-4 py-5 h-100 gradient-custom-2">
+        <h1 class="pb-2 border-bottom">Profile</h1>
         <div class="container py-5 h-100">
           <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col col-lg-9 col-xl-7">
               <div class="card">
-                <div class="rounded-top text-white d-flex flex-row" style="background-color: bg-primary; height:200px;">
-                  <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
-                      alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
-                      style="width: 150px; z-index: 1">
-                    <button type="button" class="btn btn-outline-light" data-mdb-ripple-color="dark"
-                      style="z-index: 1;">
-                      Edit profile
-                    </button>
+                <div class="rounded-top text-white d-flex flex-row" style="background-color: bg-primary; height: 200px">
+                  <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px">
+                    <img
+                      src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
+                      alt="Generic placeholder image"
+                      class="img-fluid img-thumbnail mt-4 mb-2"
+                      style="width: 150px; z-index: 1"
+                    />
+                    <button type="button" class="btn btn-outline-light" data-mdb-ripple-color="dark" style="z-index: 1">Edit profile</button>
                   </div>
-                  <div class="ms-3" style="margin-top: 130px;">
+                  <div class="ms-3" style="margin-top: 130px">
                     <h5>Andy Horwitz</h5>
                     <p>New York</p>
                   </div>
                 </div>
                 <div class="p-4 text-light">
                   <div class="d-flex justify-content-end text-center py-1 flex-wrap">
-                    
                     <div class="px-3">
                       <p class="mb-1 h5">1026</p>
                       <p class="small text-muted mb-0">Followers</p>
@@ -54,54 +91,16 @@
                     </div>
                   </div>
                 </div>
-                <!-- <div class="card-body p-4 text-light">
-                  <div class="mb-5">
-                    <p class="lead fw-normal mb-1">About</p>
-                    <div class="p-4">
-                      <p class="font-italic mb-1">Web Developer</p>
-                      <p class="font-italic mb-1">Lives in New York</p>
-                      <p class="font-italic mb-0">Photographer</p>
-                    </div>
-                  </div> -->
-                  <!-- <div class="d-flex justify-content-between align-items-center mb-4">
-                    <p class="lead fw-normal mb-0">Recent photos</p>
-                    <p class="mb-0"><a href="#!" class="text-muted">Show all</a></p>
-                  </div> -->
-                  <!-- <div class="row g-2">
-                    <div class="col mb-2">
-                      <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(112).webp"
-                        alt="image 1" class="w-100 rounded-3">
-                    </div>
-                    <div class="col mb-2">
-                      <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(107).webp"
-                        alt="image 1" class="w-100 rounded-3">
-                    </div>
-                  </div>
-                  <div class="row g-2">
-                    <div class="col">
-                      <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(108).webp"
-                        alt="image 1" class="w-100 rounded-3">
-                    </div>
-                    <div class="col">
-                      <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp"
-                        alt="image 1" class="w-100 rounded-3">
-                    </div> -->
-                  </div>
-                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+    </main>
+    <footer class="footer mt-auto py-3 bg-dark py-3 my-4 border-top">
       <div class="container">
-        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-          <div class="col-md-4 d-flex align-items-center">
-            <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
-              <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
-            </a>
-            <span class="mb-3 mb-md-0 text-body-secondary">© 2023 Alien Social, Inc</span>
-          </div>
-        </footer>
+        <span class="text-muted">© 2023 Alien Social </span>
       </div>
-</body>
+    </footer>
+  </body>
 </html>
