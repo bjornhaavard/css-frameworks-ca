@@ -9,7 +9,7 @@
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"
     ></script>
-    <title>Alien Social | Posts</title>
+    <title>Alien Social | Feed</title>
     <link rel="stylesheet" href="../dist/css/index.css" />
   </head>
   <body class="d-flex flex-column h-100">
@@ -40,7 +40,7 @@
                 <a class="nav-link" href="/profile/">Profile</a>
               </li>
             </ul>
-            <button type="button" class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal">New Post</button>
+    
             <form role="search">
               <input class="form-control" type="search" placeholder="Search" aria-label="Search" />
             </form>
@@ -49,31 +49,11 @@
       </nav>
     </header>
     <main class="flex-shrink-0">
-      <section>
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h2 class="modal-title fs-3" id="exampleModalLabel">Post</h2>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body align-items-stretch">
-                <form action="./">
-                <input type="text" class="p-3 w-100 " />
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Submit Post</button>
-              </div>
-            </form>
-            </div>
-          </div>
-        </div>
-      </section>
+     
       <section>
         <div class="container px-4 py-5" id="custom-cards">
           <h1 class="pb-2 border-bottom">Posts</h1>
+          <button type="button" id="new-post-button" class="btn btn-primary  " data-bs-toggle="modal" data-bs-target="#exampleModal">New Post</button>
           <section class="container d-flex justify-content-center mt-5">
             <button class="btn btn-primary mx-2">Sort a</button>
             <button class="btn btn-primary mx-2">Sort b</button>
@@ -113,6 +93,7 @@
             <div class="col">
               <div class="card card-cover post h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
                 <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+       
                   <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Much longer title that wraps to multiple lines</h3>
                   <div>
                     <p>
@@ -165,6 +146,29 @@
                   </ul>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section >
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2 class="modal-title fs-3" id="exampleModalLabel">Post</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body align-items-stretch">
+                <form action="./"> 
+                <input type="text" placeholder="Title" aria-label="Title for the post" class="p-1 w-100 " />
+                <p></p>
+                <input type="text" placeholder="Text" rows="5" colums="5" class="p-2 w-100" />
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Submit Post</button>
+              </div>
+            </form>
             </div>
           </div>
         </div>
