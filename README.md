@@ -2,7 +2,6 @@
 
 ![image](https://github.com/bjornhaavard/css-frameworks-ca/assets/94046432/c0736259-8554-4ca6-b27b-d90a0f0c233d)
 
-
 ## Description
 
 This is a mock-up social application called alien social for the css frameworks ca
@@ -18,9 +17,13 @@ This is a mock-up social application called alien social for the css frameworks 
 ### Installing
 
 1. Clone the repo:
+
 ```bash
 Git clone https://github.com/bjornhaavard/css-frameworks-ca
 ```
+
+2. install dependencies
+3. npm run watch
 
 ## Contact
 
