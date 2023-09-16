@@ -1,4 +1,7 @@
-@import "./variables";
-@import "../../node_modules/bootstrap/scss/bootstrap.scss";
-@import "./posts";
-@import "./nav";
+@import "variables";
+@import "variables-dark";
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+@import "posts";
+@import "nav";
+@import "profile";
