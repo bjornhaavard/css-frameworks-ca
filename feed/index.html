@@ -40,7 +40,6 @@
                 <a class="nav-link" href="/profile/">Profile</a>
               </li>
             </ul>
-    
             <form role="search">
               <input class="form-control" type="search" placeholder="Search" aria-label="Search" />
             </form>
@@ -52,13 +51,17 @@
       <section>
         <div class="container py-5" id="custom-cards">
           <h1 class="pb-2 border-bottom">Posts</h1>
-          <button type="button" id="new-post-button" class="btn btn-primary  " data-bs-toggle="modal" data-bs-target="#exampleModal">New Post</button>
-          <section class="container d-flex justify-content-center mt-5">
-            <button class="btn btn-primary mx-2">Sort a</button>
-            <button class="btn btn-primary mx-2">Sort b</button>
-            <button class="btn btn-primary mx-2">Sort c</button>
-          </section>
-          <div class="row row-cols-1 row-cols-lg-1 align-items-stretch g-4 py-5">
+          <div class="d-flex justify-content-between">
+          <button type="button" id="new-post-button" class="btn btn-primary  " data-bs-toggle="modal" data-bs-target="#modal">New Post</button>
+          <li class="nav-item dropdown list-unstyled">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-label="dropdown sort menu" aria-expanded="false">Sort</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" aria-label="sort by date" href="#">Date</a></li>
+              <li><a class="dropdown-item" aria-label="sort by place" href="#">Place</a></li>
+            </ul>
+          </li>
+        </div>
+          <div class="row row-cols-1 row-cols-lg-2 align-items-stretch g-4 py-5">
             <div class="col">
               <div class="card card-cover post h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
                 <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
@@ -72,7 +75,6 @@
                   </div>
                   <ul class="d-flex list-unstyled mt-auto">
                     <li class="me-auto">
-                      <!-- <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white" /> -->
                       <span>👽</span>
                       <span>👍</span>
                     </li>
@@ -148,7 +150,7 @@
         </div>
       </section>
       <section >
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+        <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -157,22 +159,21 @@
               </div>
               <div class="modal-body align-items-stretch">
                 <form action="./"> 
-                <input type="text" placeholder="Title" aria-label="Title for the post" class="p-1 w-100 " />
+                <input type="text" placeholder="Title" id="title" aria-label="Title for the post" class="p-2 w-100 " />
                 <p></p>
-                <input type="text" placeholder="Text" rows="5" colums="5" class="p-2 w-100" />
+                <input type="text" placeholder="Text" id="text-area" class="p-2 w-100" />
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary">Submit Post</button>
               </div>
-
             </div>
           </div>
         </div>
       </section>
     </main>
     <footer class="footer mt-auto py-3 bg-dark py-3 my-4 border-top">
-      <div class="container">
+      <div class="container d-flex justify-content-center">
         <span class="text-muted">© 2023 Alien Social </span>
       </div>
     </footer>
