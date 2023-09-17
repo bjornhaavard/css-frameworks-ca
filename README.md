@@ -22,6 +22,9 @@ This is a mock-up social application called alien social for the css frameworks 
 Git clone https://github.com/bjornhaavard/css-frameworks-ca
 ```
 
+2. install dependencies
+3. npm run watch
+
 ## Contact
 
 Here is some of my contact information
