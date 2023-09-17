@@ -1,6 +1,7 @@
 # css-frameworks-ca
 
-![image](https://github.com/bjornhaavard/css-frameworks-ca/assets/94046432/c0736259-8554-4ca6-b27b-d90a0f0c233d)
+![image](https://github.com/bjornhaavard/css-frameworks-ca/assets/94046432/df690efc-de3d-41ab-913a-830f698cfb5b)
+
 
 ## Description
 
