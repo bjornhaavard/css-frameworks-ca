@@ -12,6 +12,8 @@
     <title>Alien Social | Login</title>
     <meta name="An alien social media aplication" content="alien something" />
     <link rel="stylesheet" href="/dist/css/index.css" />
+    <script type="module" src="/src/js/handlers/register.js"></script>
+    <script type="module" src="/src/js/index.js"></script>
   </head>
   <body class="d-flex flex-column h-100">
     <header>
@@ -41,29 +43,29 @@
                 <div class="crd">
                   <h1 class="text-center mb-5">Register</h1>
 
-                  <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" action="/profile/">
+                  <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" id="registrationForm" method="post" action="/auth/register">
                     <div class="form-floating mb-3">
-                      <input type="name" class="form-control" id="name" placeholder="Name" required/>
+                      <input type="text" class="form-control" name="name" placeholder="Name" pattern="^[\w]+$" title="Username must only contain upper & lowercase letters, underscore and numbers Example: MyName_123" required/>
                       <label for="name">Name</label>
                     </div>
 
                     <div class="form-floating mb-3">
-                      <input type="email" class="form-control" id="emil" placeholder="name@example.com" required />
+                      <input type="text" class="form-control" name="email" placeholder="name@example.com" pattern="^[\w\-.]+@(stud\.)?noroff\.no$" title="Only email addresses with @stud.noroff.no allowed" required />
                       <label for="email">Email address</label>
                     </div>
 
                     <div class="form-floating mb-3">
-                      <input type="password" class="form-control" id="password" placeholder="Password" minlength="8" required />
+                      <input type="password" class="form-control" name="password" placeholder="Password" minlength="8" required />
                       <label for="password">Password</label>
                     </div>
 
                     <div class="form-floating mb-3">
-                      <input type="avatar" class="form-control" id="avatar" placeholder="Avatar" />
+                      <input type="url" class="form-control" name="avatar" placeholder="Avatar" />
                       <label for="avatar">Avatar</label>
                     </div>
 
                     <div class="form-floating mb-3">
-                      <input type="banner" class="form-control" id="banner" placeholder="Banner"/>
+                      <input type="url" class="form-control" name="banner" placeholder="Banner"/>
                       <label for="banner">Banner</label>
                     </div>
 
@@ -71,12 +73,12 @@
                       <label> <input type="checkbox" value="remember-me" /> Remember me </label>
                     </div>
 
-                    <button class="w-100 btn btn-lg btn-primary"" type="submit">Sign up</button>
+                    <button class="w-100 btn btn-lg btn-primary"" type="submit">Sign up </button>
 
                     <hr class="my-4" />
                     <small class="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small>
                     <p class="text-center text-muted mt-5 mb-0">
-                      Already have an account? <a href="#!" class="fw-bold text-body"><u>Login here</u></a>
+                      Already have an account? <a href="/" class="fw-bold text-body"><u>Login here</u></a>
                     </p>
                   </form>
                 </div>
