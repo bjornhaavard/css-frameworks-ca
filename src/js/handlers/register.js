@@ -1,5 +1,5 @@
 const form = document.querySelector("#registrationForm");
-console.log(form);
+
 form.addEventListener("submit", (event) => {
   event.preventDefault;
 
@@ -7,5 +7,4 @@ form.addEventListener("submit", (event) => {
   const formData = new FormData(form);
   const profile = Object.fromEntries(formData.entries());
   console.log(profile);
-  console.log(event);
 });
