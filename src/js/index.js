@@ -3,4 +3,15 @@ import { setRegisterFormListener } from "./handlers/register.js";
 
 // console.log(API_SOCIAL_URL);
 
-setRegisterFormListener();
+async function router() {
+  const pathname = window.location.pathname;
+
+  switch (pathname) {
+    case "/profile/register/":
+      setRegisterFormListener();
+
+      return;
+  }
+}
+
+router();
