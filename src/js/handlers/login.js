@@ -14,4 +14,3 @@ export function setLoginFormListener() {
     console.log(login);
   });
 }
-console.log("hi");
