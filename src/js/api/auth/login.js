@@ -1,33 +1,29 @@
 import { API_SOCIAL_URL } from "../constants.js";
-import * as storage from "../../storage/index.js"
+import * as storage from "../../storage/index.js";
 
 const action = "/auth/login";
 const method = "post";
 
 export async function login(profile) {
-  
-    const loginURL = API_SOCIAL_URL + action;
+  const loginURL = API_SOCIAL_URL + action;
 
-    const body = JSON.stringify(profile);
+  const body = JSON.stringify(profile);
 
-    const response = await fetch(loginURL, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      method,
-      body,
-    });
-   
-    
-    const { accessToken, ...userProfile } = await response.json()
+  const response = await fetch(loginURL, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+    method,
+    body,
+  });
 
-    storage.save("token", accessToken)
+  const { accessToken, ...userProfile } = await response.json();
 
-    storage.save("profile", userProfile)
+  storage.save("token", accessToken);
 
-    alert("You are logged in")
+  storage.save("profile", userProfile);
 
-    // if(profile) {
-    // location.href = "//profile/"
-    // }
+  alert("You are logged in");
+
+  location.href = "../../../../profile/";
 }

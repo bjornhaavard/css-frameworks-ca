@@ -2,7 +2,6 @@
 
 ![image](https://github.com/bjornhaavard/css-frameworks-ca/assets/94046432/df690efc-de3d-41ab-913a-830f698cfb5b)
 
-
 ## Description
 
 This is a mock-up social application called alien social for the css frameworks ca

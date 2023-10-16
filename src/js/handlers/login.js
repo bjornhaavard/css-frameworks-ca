@@ -11,6 +11,5 @@ export function setLoginFormListener() {
     const profile = Object.fromEntries(formData.entries());
 
     login(profile);
-    
   });
 }

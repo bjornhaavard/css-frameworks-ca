@@ -1,5 +1,6 @@
 import { setLoginFormListener } from "./handlers/login.js";
 import { setRegisterFormListener } from "./handlers/register.js";
+import * as posts from "./api/posts/index.js";
 
 async function router() {
   const pathname = window.location.pathname;
@@ -17,3 +18,5 @@ async function router() {
 }
 
 router();
+
+posts.createPost();
