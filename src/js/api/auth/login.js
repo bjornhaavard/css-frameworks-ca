@@ -5,6 +5,8 @@ const action = "/auth/login";
 const method = "post";
 
 export async function login(profile) {
+
+  
   const loginURL = API_SOCIAL_URL + action;
 
   const body = JSON.stringify(profile);
@@ -20,10 +22,9 @@ export async function login(profile) {
   const { accessToken, ...userProfile } = await response.json();
 
   storage.save("token", accessToken);
-
   storage.save("profile", userProfile);
 
   alert("You are logged in");
 
-  location.href = "../../../../profile/";
+  // location.href = "../../../../profile/";
 }
