@@ -14,15 +14,14 @@ async function router() {
       setLoginFormListener();
 
       return;
-      case "/feed/":
-        posts.updatePost({
-          id: 7783,
-          title: "test title updated more",
-          body: "testing body updated again"
-        })
-        return;
+    case "/feed/":
+      posts.updatePost({
+        id: 7783,
+        title: "test title updated more",
+        body: "testing body updated again",
+      });
+      return;
   }
 }
 
 router();
-

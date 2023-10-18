@@ -1,17 +1,17 @@
 import { load } from "../storage/index.js";
 
 export function headers() {
-    const token = load("token");
+  const token = load("token");
 
-    return {
-        "content-type": "application/json",
-        Authorization: `Bearer ${token}`,
-      }
+  return {
+    "content-type": "application/json",
+    Authorization: `Bearer ${token}`,
+  };
 }
 
-export async function fetchWithToken (url, options) {
-    return fetch(url, {
-        ...options,
-        headers: headers()
-    })
+export async function fetchWithToken(url, options) {
+  return fetch(url, {
+    ...options,
+    headers: headers(),
+  });
 }
