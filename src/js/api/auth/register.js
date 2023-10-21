@@ -15,7 +15,12 @@ export async function register(profile) {
     method,
     body,
   });
+
   const result = await response.json();
-  alert("Registration successfull");
-  return result;
+
+  if (response.ok) {
+    return result;
+  }
+
+  throw new Error(result.errors[0].message);
 }
