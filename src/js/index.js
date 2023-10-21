@@ -1,6 +1,6 @@
 import { setLoginFormListener } from "./handlers/login.js";
 import { setRegisterFormListener } from "./handlers/register.js";
-import * as posts from "./api/posts/index.js";
+import { displayPosts } from "./handlers/displayPosts.js";
 
 async function router() {
   const pathname = window.location.pathname;
@@ -15,11 +15,9 @@ async function router() {
 
       return;
     case "/feed/":
-      posts.updatePost({
-        id: 7783,
-        title: "test title updated more",
-        body: "testing body updated again",
-      });
+    case "/feed/index.html":
+      displayPosts();
+
       return;
   }
 }
