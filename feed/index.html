@@ -65,9 +65,9 @@
         <div id="posts-container">Loading...</div>
           <div class="row row-cols-1 row-cols-lg-2 align-items-stretch g-4 py-5">
             <div class="col">
-              <div class="card card-cover post h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
+              <div class="card card-cover post h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" id="postCard">
                 <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                  <h3 class="pt-5 mt-0 mb-4 display-6 lh-1 fw-bold">Lorem ipsum dolor</h3>
+                  <h3 class="pt-5 mt-0 mb-4 display-6 lh-1 fw-bold" id="postTitle">Lorem ipsum dolor</h3>
                   <div>
                     <p>
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, laudantium? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis sed nostrum quia, ducimus ratione
@@ -169,7 +169,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body align-items-stretch">
-                <form action="./"> 
+                <form action="./" id="newPostForm"> 
                 <input type="text" placeholder="Title" id="title" aria-label="Title for the post" class="p-2 w-100 " />
                 <p></p>
                 <input type="text" placeholder="Text" id="text-area" class="p-2 w-100" />
