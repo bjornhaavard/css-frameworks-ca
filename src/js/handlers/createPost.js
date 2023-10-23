@@ -1,27 +1,81 @@
+import { fetchWithToken } from "../api/fetchWithToken.js";
 import { createPost } from "../api/posts/create.js";
 import { displayMessage } from "../components/shared/displayMessage.js";
 
-export function setNewPostFormListener() {
-  const form = document.querySelector("#newPostForm");
+// export function setNewPostFormListener(formInput, token) {
+//   const formInput = document.querySelector("#newPostForm");
+//   const formData = new formData(formInput);
+//   const postContent = formData.get("post-content");
 
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
+//   const requestOptions = {
+//     method: "post",
+//     body: JSON.stringify({
+//       content: postContent,
+//     }),
+//   };
 
-    const form = event.target;
-    const formData = new FormData(form);
-    const postData = Object.fromEntries(formData.entries());
+//   const token = localStorage.getItem("token")
+//   form.addEventListener("submit", (event) => {
+//     event.preventDefault();
 
-    console.log(postData);
+//  fetchWithToken("/api/posts", requestOptions, token)
+//  .then(response => response.json())
+//  .then(data) => {
+//   if(data.succes) {
+//     $("#createPostModal").modal("hide");
+//     location.reload
+//   }
+//   else {
+//     displayMessage("alert");
+//   }
+//  });
+//  }
+// }
 
-    try {
-      await createPost(postData);
-      displayMessage("#message", "success");
-      form.reset();
-    } catch (error) {
-      console.error(error);
-      displayMessage("#message", error.message, "warning");
-    }
-  });
-}
+//     try {
+//       createPost(postData);
+//       displayMessage("#message", "success");
+//       form.reset();
+//     } catch (error) {
+//       console.error(error);
+//       displayMessage("#message", error.message, "warning");
+//     }
+//   });
+// }
+// function createPost() {
+//   try {
+//     const formInput = document.querySelector("#newPostForm");
+//     const formData = new FormData(formInput);
+//     const postContent = formData.get("post-content");
 
-setNewPostFormListener();
+//     const requestOptions = {
+//       method: "POST",
+//       body: JSON.stringify({
+//         content: postContent,
+//       }),
+//     };
+
+//     const token = localStorage.getItem("token");
+
+//     fetchWithToken("/api/posts", requestOptions, token)
+//       .then((response) => response.json())
+//       .then((data) => {
+//         if (data.success) {
+//           // Post created successfully.
+//           // Close the modal and reload the posts.
+//           $("#createPostModal").modal("hide");
+//           location.reload();
+//         } else {
+//           // There was an error creating the post.
+//           // Show an error message to the user.
+//           $("#createPostError").text(data.error);
+//         }
+//       });
+//   } catch (error) {
+//     // Handle the error.
+//     console.error(error);
+//     $("#createPostError").text("There was an error creating the post.");
+//   }
+// }
+
+// createPost();

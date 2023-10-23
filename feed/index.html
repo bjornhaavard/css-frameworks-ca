@@ -62,19 +62,21 @@
             </ul>
           </li>
         </div>
-        <div id="posts-container">Loading...</div>
+        <div id="posts-container" class="d-flex row row-cols-mg-2">Loading...</div>
           <div class="row row-cols-1 row-cols-lg-2 align-items-stretch g-4 py-5">
             <div class="col">
-              <div class="card card-cover post h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" id="postCard">
+              <div class="card card-cover post h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" id="posts-container">
                 <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                  <h3 class="pt-5 mt-0 mb-4 display-6 lh-1 fw-bold" id="postTitle">Lorem ipsum dolor</h3>
+                  <h3 class="pt-5 mt-0 mb-4 display-6 lh-1 fw-bold" id="post-title">Lorem ipsum dolor</h3>
+                  <p id="author"></p>
                   <div>
-                    <p>
+                    <p id="body-text">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, laudantium? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis sed nostrum quia, ducimus ratione
                       accusamus dolores recusandae minus unde non eligendi mollitia expedita tempore ipsam itaque. Ut mollitia possimus repudiandae. Lorem ipsum dolor sit, amet consectetur adipisicing
                       elit. Ex pariatur distinctio esse minima eveniet optio possimus quos dolor! Exercitationem alias velit porro, iusto ad dolore incidunt tempora! Culpa, ratione quod.
                     </p>
                   </div>
+                  <div id="image-container"></div>
                   <ul class="d-flex list-unstyled mt-auto">
                     <li class="me-auto">
                       <span>👽</span>
@@ -92,7 +94,7 @@
                 </div>
               </div>
             </div>
-            <div class="col">
+            <!-- <div class="col">
               <div class="card card-cover post h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
                 <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
        
@@ -119,16 +121,16 @@
                   </ul>
                 </div>
               </div>
-            </div>
-            <div class="card">
+            </div> -->
+            <!-- <div class="card">
               <img src="https://images.pexels.com/photos/18602620/pexels-photo-18602620/free-photo-of-sukker-falle-host-rustikk.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
               </div>
-            </div>
-            <div class="col">
+            </div> -->
+            <!-- <div class="col">
               <div class="card card-cover post h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
                 <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
                   <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Another longer title belongs here</h3>
@@ -156,7 +158,7 @@
                   </ul>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </section>
@@ -173,6 +175,8 @@
                 <input type="text" placeholder="Title" id="title" aria-label="Title for the post" class="p-2 w-100 " />
                 <p></p>
                 <input type="text" placeholder="Text" id="text-area" class="p-2 w-100" />
+                <input type="url" id="image-upload" placeholder="Image url" class="p-2 w-100 mt-3">
+                <label for ="image-upload"  class="btn success"></label>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

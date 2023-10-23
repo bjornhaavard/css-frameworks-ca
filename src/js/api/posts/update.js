@@ -7,6 +7,7 @@ const method = "put";
 
 export async function updatePost(postData) {
   if (!postData.id) {
+    // need to find out where to put this, no id at the moment
     throw new Error(displayMessage("#message", error.message, "warning"));
   }
 
