@@ -79,3 +79,19 @@ import { displayMessage } from "../components/shared/displayMessage.js";
 // }
 
 // createPost();
+
+export function createPost(post) {
+  const { title, author, media } = post;
+  const div = document.createElement("a");
+  const heading = document.createElement("h3");
+  const img = getImageFromContent(post.media);
+  const imageContainer = document.createElement("div");
+  const paragraph = document.createElement("p");
+
+  div.classList.add("post");
+  heading.innerText = post.title;
+  imageContainer.classList.add("post-image");
+  imageContainer.style.backgroundImage = `url(${img})`;
+  div.append(heading, imageContainer);
+  console.log(post);
+}

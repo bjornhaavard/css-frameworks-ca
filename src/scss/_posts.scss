@@ -12,3 +12,11 @@
   object-fit: contain;
   // max-height: 300px;
 }
+
+.posts-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+  justify-content: center;
+  margin: 4rem;
+}
