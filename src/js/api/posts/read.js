@@ -12,7 +12,7 @@ export async function getPosts() {
 }
 
 export async function getPost(id) {
-  if (id) {
+  if (!id) {
     throw new Error("Get requires a postID");
   }
 

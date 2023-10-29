@@ -29,7 +29,7 @@ async function router() {
       // });
       // post.createPost();
       // post.updatePost();
-      // post.removePost();
+      post.removePost(8306);
       // post.getPost(8230).then(console.log);
       return;
   }
