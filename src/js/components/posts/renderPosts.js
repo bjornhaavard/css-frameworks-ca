@@ -21,8 +21,6 @@ export function renderPosts(posts, parent) {
     const div = document.createElement("div");
     div.classList.add("card");
     div.classList.add("col-sm-10");
-    // div.classList.add("card-cover");
-    // div.classList.add("align-items-stretch");
     div.classList.add("shadow-lg");
     div.classList.add("rounded-4");
     div.classList.add("g-4");
@@ -47,21 +45,16 @@ export function renderPosts(posts, parent) {
 
     div.append(author);
 
-    // const body = document.createElement("p");
-    // body.innerText = post.body;
-
-    // div.append(body);
+  
     postContainer.append(div);
     const image = document.createElement("img");
     image.src = post.media;
-    // image.classList.add = "img-fluid";
+    
 
     div.append(image);
-
     div.append(button);
     divContainer.append(div);
-    // postContainer.append(div);
-    console.log(postContainer);
+    
 
     return;
   });

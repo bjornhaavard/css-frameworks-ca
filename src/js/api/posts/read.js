@@ -1,6 +1,8 @@
 import { API_SOCIAL_URL } from "../constants.js";
 import { fetchWithToken } from "../fetchWithToken.js";
 
+const action = "/posts";
+
 export async function getPosts() {
   const response = await fetchWithToken(`${API_SOCIAL_URL}/posts?_reactions=true&_author=true&_comments=true`);
 
