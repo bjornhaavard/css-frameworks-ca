@@ -53,7 +53,9 @@
         <div class="container py-5" id="custom-cards">
           <h1 class="pb-2 border-bottom">Posts</h1>
           <div class="d-flex justify-content-between">
-          <button type="button" id="new-post-button" class="btn btn-primary  " data-bs-toggle="modal" data-bs-target="#modal">New Post</button>
+            <a href="/feed/newPost/">
+          <button type="button" id="new-post-button" class="btn btn-primary" >New Post</button>
+        </a>
           <li class="nav-item dropdown list-unstyled">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-label="dropdown sort menu" aria-expanded="false">Sort</a>
             <ul class="dropdown-menu">
@@ -162,30 +164,7 @@
           </div>
         </div>
       </section>
-      <section >
-        <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h2 class="modal-title fs-3" id="ModalLabel">Post</h2>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body align-items-stretch">
-                <form action="./" id="newPostForm"> 
-                <input type="text" placeholder="Title" id="title" aria-label="Title for the post" class="p-2 w-100 " />
-                <p></p>
-                <input type="text" placeholder="Text" id="text-area" class="p-2 w-100" />
-                <input type="url" id="image-upload" placeholder="Image url" class="p-2 w-100 mt-3">
-                <label for ="image-upload"  class="btn success"></label>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Submit Post</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
     </main>
     <footer class="footer mt-auto py-3 bg-dark py-3 my-4 border-top">
       <div class="container d-flex justify-content-center">
