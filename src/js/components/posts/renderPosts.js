@@ -34,6 +34,7 @@ export function renderPosts(posts, parent) {
     button.classList.add("btn-primary");
     button.classList.add("mt-3");
     button.classList.add("align-self-end");
+    button.setAttribute("id", "viewPost");
 
     const heading = document.createElement("h3");
     heading.innerText = post.title;
@@ -45,16 +46,13 @@ export function renderPosts(posts, parent) {
 
     div.append(author);
 
-  
     postContainer.append(div);
     const image = document.createElement("img");
     image.src = post.media;
-    
 
     div.append(image);
     div.append(button);
     divContainer.append(div);
-    
 
     return;
   });
