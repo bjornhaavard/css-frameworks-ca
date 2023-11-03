@@ -1,3 +1,4 @@
+import { renderPosts } from "../../components/posts/renderPosts.js";
 import { API_SOCIAL_URL } from "../constants.js";
 import { fetchWithToken } from "../fetchWithToken.js";
 
@@ -21,6 +22,18 @@ export async function getPost(id) {
   const getPostUrl = `${API_SOCIAL_URL}${action}/${id}`;
 
   const response = await fetchWithToken(getPostUrl);
-
+  console.log(getPostUrl);
   return await response.json();
 }
+
+const sortAction = document.querySelectorAll(".dropdown-menu li");
+
+console.log(sortAction);
+
+sortAction.forEach((link) => {
+  link.addEventListener("click", async () => {
+    const categoryId = link.dataset.id;
+    const posts = await getPosts(categoryId);
+    renderPosts(posts, "post-container");
+  });
+});
