@@ -27,14 +27,14 @@ export function renderPosts(posts, parent) {
     div.classList.add("p-4");
     div.classList.add("m-3");
 
-    const button = document.createElement("button");
+    const link = document.createElement("a");
 
-    button.innerText = "View Post";
-    button.classList.add("btn");
-    button.classList.add("btn-primary");
-    button.classList.add("mt-3");
-    button.classList.add("align-self-end");
-    button.setAttribute("id", "viewPost");
+    link.innerText = "View Post";
+    link.classList.add("btn");
+    link.classList.add("btn-primary");
+    link.classList.add("mt-3");
+    link.classList.add("align-self-end");
+    link.href = `/feed/post/index.html?id=${post.id}`;
 
     const heading = document.createElement("h3");
     heading.innerText = post.title;
@@ -51,7 +51,7 @@ export function renderPosts(posts, parent) {
     image.src = post.media;
 
     div.append(image);
-    div.append(button);
+    div.append(link);
     divContainer.append(div);
 
     return;
