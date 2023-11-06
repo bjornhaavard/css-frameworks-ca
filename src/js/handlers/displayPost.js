@@ -58,15 +58,33 @@ export async function displayPost(container = "#post-container") {
   div.append(image);
   divContainer.append(div);
 
-  const remove = document.createElement("a");
+  const updateButton = document.createElement("a");
 
-  remove.innerText = "Delete";
-  remove.classList.add("btn");
-  remove.classList.add("btn-primary");
-  remove.classList.add("mt-3");
-  remove.addEventListener("click", removePost);
+  updateButton.innerText = "Edit Post";
+  updateButton.classList.add("btn");
+  updateButton.classList.add("btn-primary");
+  updateButton.classList.add("mt-3");
+  updateButton.addEventListener("click", async (update) => {
+    updateButton.href = await getPost(id.value);
+  });
 
-  div.append(remove);
+  div.append(updateButton);
+
+  const removeButton = document.createElement("a");
+
+  removeButton.innerText = "Delete";
+  removeButton.classList.add("btn");
+  removeButton.classList.add("btn-primary");
+  removeButton.classList.add("mt-3");
+  removeButton.addEventListener("click", async (event) => {
+    try {
+      await removePost(id);
+    } catch (error) {
+      console.log("error delete", error);
+    }
+  });
+
+  div.append(removeButton);
 
   console.log(post);
 }

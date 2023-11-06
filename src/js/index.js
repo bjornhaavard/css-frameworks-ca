@@ -7,7 +7,8 @@ import { removePost } from "./api/posts/delete.js";
 import * as post from "./api/posts/index.js";
 import { createPostFormListener } from "./handlers/createPost.js";
 import { displayPost } from "./handlers/displayPost.js";
-import { renderPost } from "./components/posts/renderPost.js";
+import { updateFormListener } from "./handlers/updatePost.js";
+// import { renderPost } from "./components/posts/renderPost.js";
 
 async function router() {
   const pathname = window.location.pathname;
@@ -27,6 +28,10 @@ async function router() {
       createPostFormListener();
       return;
 
+    case "/feed/edit/":
+      updateFormListener();
+      return;
+
     case "/feed/":
     case "/feed/index.html":
       displayPosts();
@@ -35,7 +40,7 @@ async function router() {
     case "/feed/post/index.html":
     case "/feed/post/":
       displayPost();
-      renderPost();
+      // renderPost();
       return;
   }
 }
