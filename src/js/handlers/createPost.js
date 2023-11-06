@@ -18,7 +18,7 @@ export function createPostFormListener() {
 
     try {
       await createPost(post);
-      displayMessage("#message", 'Post successful. Please <a href="/">."./feed/"</a>', "success");
+      displayMessage("#message", 'Post successful. Please go to <a href="/feed/">Feed</a>', "success");
       form.reset();
     } catch (error) {
       console.error(error);
