@@ -19,7 +19,7 @@ export async function getPost(id) {
     throw new Error("Get requires a postID");
   }
 
-  const getPostUrl = `${API_SOCIAL_URL}${action}/${id}`;
+  const getPostUrl = `${API_SOCIAL_URL}${action}/${id}?_author=true`;
 
   const response = await fetchWithToken(getPostUrl);
   if (response.ok) {
