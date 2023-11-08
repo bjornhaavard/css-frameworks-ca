@@ -1,5 +1,6 @@
 import { getPost, removePost } from "../api/posts/index.js";
 import { getParamFromQueryString } from "../helpers/getParamFromQueryString.js";
+import { displayMessage } from "../components/shared/displayMessage.js";
 
 export async function displayPost(container = "#post-container") {
   const parentElement = document.querySelector(container);
@@ -58,33 +59,38 @@ export async function displayPost(container = "#post-container") {
   div.append(image);
   divContainer.append(div);
 
+  const buttonGroup = document.createElement("div");
+  buttonGroup.classList.add("btn-group-vertical-lg");
+  buttonGroup.classList.add("mt-2");
+  buttonGroup.classList.add("align-self-end");
+
   const updateButton = document.createElement("a");
 
   updateButton.innerText = "Edit Post";
   updateButton.classList.add("btn");
   updateButton.classList.add("btn-primary");
-  updateButton.classList.add("mt-3");
-  updateButton.addEventListener("click", async (update) => {
-    updateButton.href = await getPost(id.value);
-  });
+  updateButton.href = `/feed/edit/index.html?id=${post.id}`;
 
-  div.append(updateButton);
+  buttonGroup.append(updateButton);
 
   const removeButton = document.createElement("a");
 
   removeButton.innerText = "Delete";
   removeButton.classList.add("btn");
   removeButton.classList.add("btn-primary");
-  removeButton.classList.add("mt-3");
-  removeButton.addEventListener("click", async (event) => {
+  removeButton.classList.add("m-1");
+  removeButton.addEventListener("click", async () => {
     try {
+      displayMessage("#deleteMessage", 'Post deleted. Please go to <a href="/feed/">Feed</a>', "success");
       await removePost(id);
     } catch (error) {
       console.log("error delete", error);
     }
   });
 
-  div.append(removeButton);
+  buttonGroup.append(removeButton);
+
+  div.append(buttonGroup);
 
   console.log(post);
 }
