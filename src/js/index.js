@@ -9,6 +9,7 @@ import { createPostFormListener } from "./handlers/createPost.js";
 import { displayPost } from "./handlers/displayPost.js";
 import { updateFormListener } from "./handlers/updatePost.js";
 // import { renderPost } from "./components/posts/renderPost.js";
+import { sortPosts } from "./handlers/sortPosts.js";
 
 async function router() {
   const pathname = window.location.pathname;
@@ -26,9 +27,11 @@ async function router() {
 
     case "/feed/newPost/":
       createPostFormListener();
+      sortPosts();
       return;
 
     case "/feed/edit/":
+    case "/feed/edit/index.html":
       updateFormListener();
       return;
 
