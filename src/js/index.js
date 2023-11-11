@@ -8,8 +8,9 @@ import * as post from "./api/posts/index.js";
 import { createPostFormListener } from "./handlers/createPost.js";
 import { displayPost } from "./handlers/displayPost.js";
 import { updateFormListener } from "./handlers/updatePost.js";
+import { searchPostHandler } from "./handlers/searchPosts.js";
 // import { renderPost } from "./components/posts/renderPost.js";
-import { sortPosts } from "./handlers/sortPosts.js";
+// import { sortPosts } from "./handlers/sortPosts.js";
 
 async function router() {
   const pathname = window.location.pathname;
@@ -27,7 +28,7 @@ async function router() {
 
     case "/feed/newPost/":
       createPostFormListener();
-      sortPosts();
+      // sortPosts();
       return;
 
     case "/feed/edit/":
@@ -49,3 +50,4 @@ async function router() {
 }
 
 router();
+searchPostHandler();

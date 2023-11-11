@@ -70,21 +70,25 @@ export async function displayPost(container = "#post-container") {
   commentSection.classList.add("align-items-stretch");
   commentSection.classList.add("justify-content-center");
   commentSection.classList.add("g-4");
+  commentSection.classList.add("rounded-4");
   commentSection.classList.add("py-5");
   const commentContainer = document.createElement("div");
   commentContainer.classList.add("post");
   commentContainer.classList.commentSection;
+  const commentAuthor = document.createElement("h5");
   const comments = document.createElement("p");
 
-  comments.classList.add("p-2");
+  comments.classList.add("fst-italic");
 
   commentSection.append(commentContainer);
 
-  comments.innerText = post._count.comments;
-  if (comments === false) {
-    ("No comments yet");
+  if (comments.length === 0) {
+    comments.innerText = "No comments yet";
+  } else {
+    commentAuthor.innerText = post.comments[0].author.name;
+    comments.innerText = post.comments[0].body;
   }
-  commentContainer.append(comments);
+  commentContainer.append(commentAuthor, comments);
 
   console.log(post);
 }
