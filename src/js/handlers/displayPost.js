@@ -1,6 +1,7 @@
 import { getPost, removePost } from "../api/posts/index.js";
 import { getParamFromQueryString } from "../helpers/getParamFromQueryString.js";
 import { displayMessage } from "../components/shared/displayMessage.js";
+import { renderAdminButtons } from "../components/posts/renderAdminButtons.js";
 
 export async function displayPost(container = "#post-container") {
   const parentElement = document.querySelector(container);
@@ -59,38 +60,31 @@ export async function displayPost(container = "#post-container") {
   div.append(image);
   divContainer.append(div);
 
-  const buttonGroup = document.createElement("div");
-  buttonGroup.classList.add("btn-group-vertical-lg");
-  buttonGroup.classList.add("mt-2");
-  buttonGroup.classList.add("align-self-end");
+  renderAdminButtons(div, post.author.name, post.id);
 
-  const updateButton = document.createElement("a");
+  const commentSection = document.querySelector("#commentSection");
+  commentSection.classList.add("dflex");
+  commentSection.classList.add("row");
+  commentSection.classList.add("row-cols-1");
+  commentSection.classList.add("row-cols-lg-2");
+  commentSection.classList.add("align-items-stretch");
+  commentSection.classList.add("justify-content-center");
+  commentSection.classList.add("g-4");
+  commentSection.classList.add("py-5");
+  const commentContainer = document.createElement("div");
+  commentContainer.classList.add("post");
+  commentContainer.classList.commentSection;
+  const comments = document.createElement("p");
 
-  updateButton.innerText = "Edit Post";
-  updateButton.classList.add("btn");
-  updateButton.classList.add("btn-primary");
-  updateButton.href = `/feed/edit/index.html?id=${post.id}`;
+  comments.classList.add("p-2");
 
-  buttonGroup.append(updateButton);
+  commentSection.append(commentContainer);
 
-  const removeButton = document.createElement("a");
-
-  removeButton.innerText = "Delete";
-  removeButton.classList.add("btn");
-  removeButton.classList.add("btn-primary");
-  removeButton.classList.add("m-1");
-  removeButton.addEventListener("click", async () => {
-    try {
-      displayMessage("#deleteMessage", 'Post deleted. Please go to <a href="/feed/">Feed</a>', "success");
-      await removePost(id);
-    } catch (error) {
-      console.log("error delete", error);
-    }
-  });
-
-  buttonGroup.append(removeButton);
-
-  div.append(buttonGroup);
+  comments.innerText = post._count.comments;
+  if (comments === false) {
+    ("No comments yet");
+  }
+  commentContainer.append(comments);
 
   console.log(post);
 }

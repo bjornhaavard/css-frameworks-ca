@@ -26,8 +26,13 @@ export async function updateFormListener() {
       const form = event.target;
       const formData = new FormData(form);
       const post = Object.fromEntries(formData.entries());
-      post.id = id;
 
+      const tagsInput = form.querySelector("input[name='tags']").value;
+      const tagsArray = tagsInput.split(",").map((tag) => tag.trim());
+      post.tags = tagsArray;
+
+      post.id = id;
+      displayMessage("#updateMessage", 'Post updated. Please go to <a href="/feed/">Feed</a>', "success");
       updatePost(post);
     });
   }
