@@ -1,7 +1,8 @@
-import { getPost, removePost } from "../api/posts/index.js";
+import { getPost } from "../api/posts/index.js";
 import { getParamFromQueryString } from "../helpers/getParamFromQueryString.js";
 import { displayMessage } from "../components/shared/displayMessage.js";
 import { renderAdminButtons } from "../components/posts/renderAdminButtons.js";
+import { getPostComments } from "../helpers/makeComments.js";
 
 export async function displayPost(container = "#post-container") {
   const parentElement = document.querySelector(container);
@@ -15,17 +16,14 @@ export async function displayPost(container = "#post-container") {
   const post = await getPost(id);
   parentElement.classList.add("d-flex");
   parentElement.classList.add("row");
-  //   parentElement.classList.add("row-cols-1");
-  //   parentElement.classList.add("row-cols-lg-2");
+  parentElement.classList.add("row-cols-lg-2");
+  parentElement.classList.add("justify-content-center");
 
   const divContainer = document.createElement("div");
   divContainer.classList.add("row");
-  divContainer.classList.add("row-cols-1");
-  divContainer.classList.add("row-cols-lg-2");
   divContainer.classList.add("align-items-stretch");
   divContainer.classList.add("justify-content-center");
-  divContainer.classList.add("g-4");
-  divContainer.classList.add("py-5");
+  divContainer.classList.add("py-3");
 
   parentElement.append(divContainer);
 
@@ -33,7 +31,7 @@ export async function displayPost(container = "#post-container") {
   div.classList.add("card");
   div.classList.add("col-sm-0");
   div.classList.add("shadow-lg");
-  div.classList.add("rounded-4");
+  div.classList.add("rounded-2");
   div.classList.add("g-4");
   div.classList.add("p-4");
   div.classList.add("m-3");
@@ -62,33 +60,5 @@ export async function displayPost(container = "#post-container") {
 
   renderAdminButtons(div, post.author.name, post.id);
 
-  const commentSection = document.querySelector("#commentSection");
-  commentSection.classList.add("dflex");
-  commentSection.classList.add("row");
-  commentSection.classList.add("row-cols-1");
-  commentSection.classList.add("row-cols-lg-2");
-  commentSection.classList.add("align-items-stretch");
-  commentSection.classList.add("justify-content-center");
-  commentSection.classList.add("g-4");
-  commentSection.classList.add("rounded-4");
-  commentSection.classList.add("py-5");
-  const commentContainer = document.createElement("div");
-  commentContainer.classList.add("post");
-  commentContainer.classList.commentSection;
-  const commentAuthor = document.createElement("h5");
-  const comments = document.createElement("p");
-
-  comments.classList.add("fst-italic");
-
-  commentSection.append(commentContainer);
-
-  if (comments.length === 0) {
-    comments.innerText = "No comments yet";
-  } else {
-    commentAuthor.innerText = post.comments[0].author.name;
-    comments.innerText = post.comments[0].body;
-  }
-  commentContainer.append(commentAuthor, comments);
-
-  console.log(post);
+  getPostComments();
 }
