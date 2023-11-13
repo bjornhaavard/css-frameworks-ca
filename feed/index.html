@@ -33,8 +33,9 @@
                 <a class="nav-link" href="/profile/">Profile</a>
               </li>
             </ul>
-            <form role="search">
-              <input class="form-control" id="searchBar" type="search" placeholder="Search" aria-label="Search" />
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" id="searchInput" type="search" placeholder="Search" aria-label="Search" />
+              <button id="searchButton" class="btn btn-primary" type="submit">Search</button>
             </form>
           </div>
         </div>
@@ -51,44 +52,46 @@
             <li class="nav-item dropdown list-unstyled">
               <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-label="dropdown sort menu" aria-expanded="false">Sort</a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" aria-label="sort by date" href="#">Date</a></li>
-                <li><a class="dropdown-item" aria-label="sort by place" href="#">Author</a></li>
+                <li><a class="dropdown-item" aria-label="sort by newest" href="#">Newest</a></li>
+                <li><a class="dropdown-item" aria-label="sort for oldest" href="#">Oldest</a></li>
               </ul>
             </li>
           </div>
           <div id="placeholder-glow">
-            <div class="card col-4 mt-2" aria-hidden="true">
-              <!-- <img src="..." class="card-img-top" alt="..." /> -->
-              <div class="card-body">
-                <h5 class="card-title placeholder-glow">
-                  <span class="placeholder col-2"></span>
-                </h5>
-                <p class="card-text placeholder-glow">
-                  <span class="placeholder col-2"></span>
-                  <span class="placeholder col-2"></span>
-                  <span class="placeholder col-4"></span>
-                  <span class="placeholder col-6"></span>
+            <div class="d-flex row row-cols-lg-2">
+              <div class="card col-4 mt-2" aria-hidden="true">
+                <!-- <img src="..." class="card-img-top" alt="..." /> -->
+                <div class="card-body">
+                  <h5 class="card-title placeholder-glow">
+                    <span class="placeholder col-2"></span>
+                  </h5>
+                  <p class="card-text placeholder-glow">
+                    <span class="placeholder col-2"></span>
+                    <span class="placeholder col-2"></span>
+                    <span class="placeholder col-4"></span>
+                    <span class="placeholder col-6"></span>
 
-                  <span class="placeholder col-2"></span>
-                </p>
-                <a class="btn btn-primary disabled placeholder col-2" aria-disabled="true"></a>
+                    <span class="placeholder col-2"></span>
+                  </p>
+                  <a class="btn btn-primary disabled placeholder col-2" aria-disabled="true"></a>
+                </div>
               </div>
-            </div>
-            <div class="card col-4 mt-2" aria-hidden="true">
-              <!-- <img src="..." class="card-img-top" alt="..." /> -->
-              <div class="card-body">
-                <h5 class="card-title placeholder-glow">
-                  <span class="placeholder col-2"></span>
-                </h5>
-                <p class="card-text placeholder-glow">
-                  <span class="placeholder col-2"></span>
-                  <span class="placeholder col-2"></span>
-                  <span class="placeholder col-4"></span>
-                  <span class="placeholder col-6"></span>
+              <div class="card col-4 mt-2" aria-hidden="true">
+                <!-- <img src="..." class="card-img-top" alt="..." /> -->
+                <div class="card-body">
+                  <h5 class="card-title placeholder-glow">
+                    <span class="placeholder col-2"></span>
+                  </h5>
+                  <p class="card-text placeholder-glow">
+                    <span class="placeholder col-2"></span>
+                    <span class="placeholder col-2"></span>
+                    <span class="placeholder col-4"></span>
+                    <span class="placeholder col-6"></span>
 
-                  <span class="placeholder col-2"></span>
-                </p>
-                <a class="btn btn-primary disabled placeholder col-2" aria-disabled="true"></a>
+                    <span class="placeholder col-2"></span>
+                  </p>
+                  <a class="btn btn-primary disabled placeholder col-2" aria-disabled="true"></a>
+                </div>
               </div>
             </div>
           </div>

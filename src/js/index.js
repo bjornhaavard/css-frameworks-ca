@@ -39,6 +39,7 @@ async function router() {
     case "/feed/":
     case "/feed/index.html":
       displayPosts();
+      searchPostHandler();
       return;
 
     case "/feed/post/index.html":

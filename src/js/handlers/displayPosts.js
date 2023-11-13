@@ -6,6 +6,7 @@ export async function displayPosts() {
   try {
     if (renderPosts) {
       const placeHolder = document.querySelector("#placeholder-glow");
+
       placeHolder.style.display = "none";
     }
     const posts = await api.getPosts();
