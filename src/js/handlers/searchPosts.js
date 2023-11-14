@@ -1,17 +1,17 @@
-import { getPosts } from "../api/posts/index.js";
+import { searchPosts } from "../api/posts/search.js";
+import { displayPosts } from "./displayPosts.js";
 
 export async function searchPostHandler() {
-  //   const posts = await getPosts();
-
   const searchInput = document.querySelector("#searchInput");
   const searchButton = document.querySelector("#searchButton");
 
   searchButton.addEventListener("click", async () => {
     const searchQuery = searchInput.value.trim();
 
-    const response = await getPosts(`/social/posts?_tag=my_tag${searchQuery}`);
+    const response = await searchPosts(`/social/posts?_tag=${searchQuery.value}`);
     const posts = await response.json();
-    console.log(searchQuery);
+    displayPosts(posts, "#post-container");
+    console.log(searchQuery.value);
   });
 }
 // [5:48 PM] Connor obrien
