@@ -9,8 +9,7 @@ import { createPostFormListener } from "./handlers/createPost.js";
 import { displayPost } from "./handlers/displayPost.js";
 import { updateFormListener } from "./handlers/updatePost.js";
 import { searchPostHandler } from "./handlers/searchPosts.js";
-// import { renderPost } from "./components/posts/renderPost.js";
-// import { sortPosts } from "./handlers/sortPosts.js";
+import { searchPosts } from "./api/posts/search.js";
 
 async function router() {
   const pathname = window.location.pathname;
@@ -40,6 +39,7 @@ async function router() {
     case "/feed/index.html":
       displayPosts();
       searchPostHandler();
+      searchPosts();
       return;
 
     case "/feed/post/index.html":
@@ -51,4 +51,3 @@ async function router() {
 }
 
 router();
-searchPostHandler();
