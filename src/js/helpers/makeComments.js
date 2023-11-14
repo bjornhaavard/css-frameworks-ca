@@ -11,11 +11,12 @@ export async function getPostComments() {
     post.comments.forEach((comment) => {
       commentSection.classList.add("dflex");
       commentSection.classList.add("row");
-      commentSection.classList.add("row-cols-lg-2");
+      commentSection.classList.add("row-cols-lg-1");
       commentSection.classList.add("justify-content-center");
       const commentContainer = document.createElement("div");
       commentContainer.classList.add("card");
       commentContainer.classList.add("rounded-4");
+      commentContainer.classList.add("mt-5");
 
       const commentAuthor = document.createElement("h5");
       const commentPara = document.createElement("p");
@@ -31,9 +32,9 @@ export async function getPostComments() {
   } else {
     const commentSection = document.querySelector("#commentSection");
 
-    commentSection.classList.add("dflex");
+    // commentSection.classList.add("dflex");
     commentSection.classList.add("row");
-    commentSection.classList.add("row-cols-lg-2");
+    commentSection.classList.add("row-cols-lg-1");
     commentSection.classList.add("justify-content-center");
     commentSection.classList.add("mx-1");
     const commentContainer = document.createElement("div");
