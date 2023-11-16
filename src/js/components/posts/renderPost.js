@@ -1,13 +1,13 @@
-import { displayPost } from "../../handlers/displayPost";
+// import { displayPost } from "../../handlers/displayPost.js";
 
-export function renderPost(post, parent) {
-  const html = post(displayPost, (post) => {
-    console.log(viewPost);
-    // console.log(post);
-    const container = document.querySelector(parent);
-    container.append(...html);
-  });
-}
+// export function renderPost(post, parent) {
+//   const html = post(displayPost, (post) => {
+//     console.log(viewPost);
+//     // console.log(post);
+//     const container = document.querySelector(parent);
+//     container.append(...html);
+//   });
+// }
 
-console.log("renderpost");
-console.log("noe");
+// console.log("renderpost");
+// console.log("noe");

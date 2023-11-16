@@ -1,4 +1,16 @@
+import { displayMessage } from "../shared/displayMessage.js";
+
 export function renderPosts(posts, parent) {
+  const container = document.querySelector(parent);
+  const searchMessage = document.querySelector("#search-message");
+  container.innerHTML = "";
+  searchMessage.innerHTML = "";
+
+  if (posts.length === 0) {
+    setTimeout;
+    displayMessage("#search-message", "No posts found, please try again", "danger");
+  }
+
   const html = posts.map(function (post) {
     const postContainer = document.querySelector("#posts-container");
 
@@ -48,7 +60,8 @@ export function renderPosts(posts, parent) {
 
     postContainer.append(div);
     const image = document.createElement("img");
-    image.src = post.media;
+    const defaultImage = "https://www.pacificfoodmachinery.com.au/media/catalog/product/placeholder/default/no-product-image-400x400_1.png";
+    image.src = post.media || defaultImage;
 
     div.append(image);
     div.append(link);
@@ -57,6 +70,5 @@ export function renderPosts(posts, parent) {
     return;
   });
 
-  const container = document.querySelector(parent);
   container.append(...html);
 }
