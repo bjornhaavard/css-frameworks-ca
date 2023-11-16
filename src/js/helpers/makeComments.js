@@ -40,6 +40,7 @@ export async function getPostComments() {
     const commentContainer = document.createElement("div");
     commentContainer.classList.add("card");
     commentContainer.classList.add("rounded-2");
+    commentContainer.classList.add("mt-5");
 
     const comments = document.createElement("p");
 

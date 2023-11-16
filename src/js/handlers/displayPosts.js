@@ -1,12 +1,11 @@
 import * as api from "../api/posts/index.js";
 import { renderPosts } from "../components/posts/renderPosts.js";
-import { getPost } from "../api/posts/index.js";
 
 export async function displayPosts() {
   try {
-    if (renderPosts) {
-      const placeHolder = document.querySelector("#placeholder-glow");
+    const placeHolder = document.querySelector("#placeholder-glow");
 
+    if (renderPosts) {
       placeHolder.style.display = "none";
     }
     const posts = await api.getPosts();

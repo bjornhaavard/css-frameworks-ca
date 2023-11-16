@@ -53,7 +53,8 @@ export async function displayPost(container = "#post-container") {
 
   parentElement.append(div);
   const image = document.createElement("img");
-  image.src = post.media;
+  const defaultImage = "https://www.pacificfoodmachinery.com.au/media/catalog/product/placeholder/default/no-product-image-400x400_1.png";
+  image.src = post.media || defaultImage;
 
   div.append(image);
   divContainer.append(div);
