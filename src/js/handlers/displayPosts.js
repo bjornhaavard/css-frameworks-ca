@@ -3,12 +3,13 @@ import { renderPosts } from "../components/posts/renderPosts.js";
 
 export async function displayPosts() {
   try {
-    const placeHolder = document.querySelector("#placeholder-glow");
+    const placeHolder = document.querySelector("#spinner");
 
     if (renderPosts) {
       placeHolder.style.display = "none";
     }
     const posts = await api.getPosts();
+
     renderPosts(posts, "#posts-container");
     console.log(posts);
   } catch (error) {
