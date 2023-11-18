@@ -53,6 +53,14 @@ export function renderPosts(posts, parent) {
 
     div.append(heading);
 
+    const authorAvatar = document.createElement("img");
+    const defaultAvatarImage = "https://static.vecteezy.com/system/resources/thumbnails/009/734/564/small/default-avatar-profile-icon-of-social-media-user-vector.jpg";
+    authorAvatar.src = post.author.avatar || defaultAvatarImage;
+    // authorAvatar.classList.add("img-thumbnail");
+    authorAvatar.classList.add("img-fluid", "img-thumbnail", "rounded-5", "w-50", "post-thumbnail");
+
+    div.append(authorAvatar);
+
     const author = document.createElement("p");
     author.innerText = post.author.name;
 
