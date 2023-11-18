@@ -1,20 +1,15 @@
 import { setLoginFormListener } from "./handlers/login.js";
 import { setRegisterFormListener } from "./handlers/register.js";
 import { displayPosts } from "./handlers/displayPosts.js";
-import { createPost } from "./api/posts/create.js";
-import { updatePost } from "./api/posts/update.js";
-import { removePost } from "./api/posts/delete.js";
 import * as post from "./api/posts/index.js";
 import { createPostFormListener } from "./handlers/createPost.js";
 import { displayPost } from "./handlers/displayPost.js";
 import { updateFormListener } from "./handlers/updatePost.js";
 import { searchPostHandler } from "./handlers/searchPosts.js";
-import { searchPosts } from "./api/posts/search.js";
+import * as handler from "./handlers/index.js";
 
 async function router() {
   const pathname = window.location.pathname;
-
-  console.log(pathname);
 
   switch (pathname) {
     case "/":
@@ -27,7 +22,7 @@ async function router() {
 
     case "/feed/newPost/":
       createPostFormListener();
-      // sortPosts();
+
       return;
 
     case "/feed/edit/":
@@ -39,7 +34,7 @@ async function router() {
     case "/feed/index.html":
       displayPosts();
       searchPostHandler();
-      // searchPosts();
+      handler.sortPostsHandler();
       return;
 
     case "/feed/post/index.html":
