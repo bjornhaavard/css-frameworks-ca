@@ -1,3 +1,4 @@
+import { displayMessage } from "../../components/shared/displayMessage.js";
 import { API_SOCIAL_URL } from "../constants.js";
 import { fetchWithToken } from "../fetchWithToken.js";
 
@@ -8,5 +9,5 @@ export async function searchPosts(tag) {
     return await response.json();
   }
 
-  throw new Error(response.statusText);
+  throw new Error(displayMessage(error, "#posts-container", response.statusText));
 }
