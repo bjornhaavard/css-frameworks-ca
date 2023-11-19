@@ -7,13 +7,12 @@ const method = "put";
 
 export async function updatePost(postData) {
   if (!postData.id) {
-    // need to find out where to put this, no id at the moment
     throw new Error(displayMessage("#message", error.message, "warning"));
   }
 
-  const createPostURL = `${API_SOCIAL_URL}${action}/${postData.id}`;
+  const updatePostURL = `${API_SOCIAL_URL}${action}/${postData.id}`;
 
-  const response = await fetchWithToken(createPostURL, {
+  const response = await fetchWithToken(updatePostURL, {
     method,
     body: JSON.stringify(postData),
   });

@@ -1,4 +1,3 @@
-import { displayMessage } from "../../components/shared/displayMessage.js";
 import { API_SOCIAL_URL } from "../constants.js";
 import { fetchWithToken } from "../fetchWithToken.js";
 

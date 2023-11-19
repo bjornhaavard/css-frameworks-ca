@@ -1,3 +1,4 @@
+import { renderPosts } from "../../components/posts/renderPosts.js";
 import { API_SOCIAL_URL } from "../constants.js";
 import { fetchWithToken } from "../fetchWithToken.js";
 
@@ -18,9 +19,12 @@ export async function getPost(id) {
     throw new Error("Get requires a postID");
   }
 
-  const getPostUrl = `${API_SOCIAL_URL}${action}/${id}`;
+  const getPostUrl = `${API_SOCIAL_URL}${action}/${id}?_author=true&_comments=true&_reactions=true`;
 
   const response = await fetchWithToken(getPostUrl);
+  if (response.ok) {
+    return await response.json();
+  }
 
-  return await response.json();
+  throw new Error(response.statusText);
 }

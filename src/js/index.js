@@ -1,36 +1,46 @@
 import { setLoginFormListener } from "./handlers/login.js";
 import { setRegisterFormListener } from "./handlers/register.js";
 import { displayPosts } from "./handlers/displayPosts.js";
-import { createPost } from "./api/posts/create.js";
-import { updatePost } from "./api/posts/update.js";
-import { removePost } from "./api/posts/delete.js";
 import * as post from "./api/posts/index.js";
+import { createPostFormListener } from "./handlers/createPost.js";
+import { displayPost } from "./handlers/displayPost.js";
+import { updateFormListener } from "./handlers/updatePost.js";
+import { searchPostHandler } from "./handlers/searchPosts.js";
+import * as handler from "./handlers/index.js";
 
 async function router() {
   const pathname = window.location.pathname;
 
   switch (pathname) {
+    case "/":
+    case "/index.html":
+      setLoginFormListener();
+      return;
     case "/profile/register/":
       setRegisterFormListener();
+      return;
+
+    case "/feed/newPost/":
+      createPostFormListener();
 
       return;
-    case "/":
-      setLoginFormListener();
 
+    case "/feed/edit/":
+    case "/feed/edit/index.html":
+      updateFormListener();
       return;
+
     case "/feed/":
     case "/feed/index.html":
       displayPosts();
-      // updatePost({
-      //   id: 8155,
-      //   title: "testing a post",
-      //   body: "test test",
-      //   media: "https://images.pexels.com/photos/3011842/pexels-photo-3011842.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      // });
-      // post.createPost();
-      // post.updatePost();
-      // post.removePost(8306);
-      post.getPost(8230).then(console.log);
+      searchPostHandler();
+      handler.sortPostsHandler();
+      return;
+
+    case "/feed/post/index.html":
+    case "/feed/post/":
+      displayPost();
+      // renderPost();
       return;
   }
 }
