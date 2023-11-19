@@ -7,7 +7,6 @@ export function renderPosts(posts, parent) {
   searchMessage.innerHTML = "";
 
   if (posts.length === 0) {
-    setTimeout;
     displayMessage("#search-message", "No posts found, please try again", "danger");
   }
 
@@ -17,15 +16,13 @@ export function renderPosts(posts, parent) {
     postContainer.classList.add("d-flex");
     postContainer.classList.add("row");
     postContainer.classList.add("row-cols-1");
-    postContainer.classList.add("row-cols-lg-2");
 
     const divContainer = document.createElement("div");
     divContainer.classList.add("row");
-    divContainer.classList.add("row-cols-1");
-    divContainer.classList.add("row-cols-lg-2");
+    divContainer.classList.add("row-cols-lg-3");
     divContainer.classList.add("align-items-stretch");
     divContainer.classList.add("justify-content-center");
-    divContainer.classList.add("g-4");
+    divContainer.classList.add("g-3");
     divContainer.classList.add("py-5");
 
     postContainer.append(divContainer);
@@ -56,8 +53,8 @@ export function renderPosts(posts, parent) {
     const authorAvatar = document.createElement("img");
     const defaultAvatarImage = "https://static.vecteezy.com/system/resources/thumbnails/009/734/564/small/default-avatar-profile-icon-of-social-media-user-vector.jpg";
     authorAvatar.src = post.author.avatar || defaultAvatarImage;
-    // authorAvatar.classList.add("img-thumbnail");
-    authorAvatar.classList.add("img-fluid", "img-thumbnail", "rounded-5", "w-50", "post-thumbnail");
+
+    authorAvatar.classList.add("img-fluid", "img-thumbnail", "rounded-circle", "w-25", "h-25", "post-thumbnail", "card");
 
     div.append(authorAvatar);
 
@@ -69,6 +66,7 @@ export function renderPosts(posts, parent) {
     postContainer.append(div);
     const image = document.createElement("img");
     const defaultImage = "https://www.pacificfoodmachinery.com.au/media/catalog/product/placeholder/default/no-product-image-400x400_1.png";
+    image.classList.add("w-100");
     image.src = post.media || defaultImage;
 
     div.append(image);
