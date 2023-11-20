@@ -7,6 +7,7 @@ import { displayPost } from "./handlers/displayPost.js";
 import { updateFormListener } from "./handlers/updatePost.js";
 import { searchPostHandler } from "./handlers/searchPosts.js";
 import * as handler from "./handlers/index.js";
+import { displayProfileData } from "./components/profile/profileHome.js";
 
 async function router() {
   const pathname = window.location.pathname;
@@ -18,6 +19,10 @@ async function router() {
       return;
     case "/profile/register/":
       setRegisterFormListener();
+      return;
+
+    case "/profile/":
+      displayProfileData();
       return;
 
     case "/feed/newPost/":
@@ -35,12 +40,13 @@ async function router() {
       displayPosts();
       searchPostHandler();
       handler.sortPostsHandler();
+
       return;
 
     case "/feed/post/index.html":
     case "/feed/post/":
       displayPost();
-      // renderPost();
+
       return;
   }
 }
