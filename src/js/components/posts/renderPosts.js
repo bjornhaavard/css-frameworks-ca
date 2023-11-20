@@ -7,15 +7,15 @@ export function renderPosts(posts, parent) {
   searchMessage.innerHTML = "";
 
   if (posts.length === 0) {
-    displayMessage("#search-message", "No posts found, please try again", "danger");
+    displayMessage("#search-message", "No posts found, please try again", "warning");
   }
 
   const html = posts.map(function (post) {
     const postContainer = document.querySelector("#posts-container");
 
-    postContainer.classList.add("d-flex");
-    postContainer.classList.add("row");
-    postContainer.classList.add("row-cols-1");
+    const filterButton = document.createElement("btn");
+    filterButton.classList.add("btn", "btn-primary");
+    filterButton.innerText = "filter";
 
     const divContainer = document.createElement("div");
     divContainer.classList.add("row");
@@ -23,13 +23,13 @@ export function renderPosts(posts, parent) {
     divContainer.classList.add("align-items-stretch");
     divContainer.classList.add("justify-content-center");
     divContainer.classList.add("g-3");
-    divContainer.classList.add("py-5");
+    divContainer.classList.add("m-3");
 
     postContainer.append(divContainer);
 
     const div = document.createElement("div");
     div.classList.add("card");
-    div.classList.add("col-sm-10");
+    div.classList.add("col-sm-6");
     div.classList.add("shadow-lg");
     div.classList.add("rounded-4");
     div.classList.add("g-4");
@@ -48,20 +48,20 @@ export function renderPosts(posts, parent) {
     const heading = document.createElement("h3");
     heading.innerText = post.title;
 
-    div.append(heading);
-
     const authorAvatar = document.createElement("img");
     const defaultAvatarImage = "https://static.vecteezy.com/system/resources/thumbnails/009/734/564/small/default-avatar-profile-icon-of-social-media-user-vector.jpg";
     authorAvatar.src = post.author.avatar || defaultAvatarImage;
 
-    authorAvatar.classList.add("img-fluid", "img-thumbnail", "rounded-circle", "w-25", "h-25", "post-thumbnail", "card");
-
-    div.append(authorAvatar);
+    authorAvatar.classList.add("img-fluid", "img-thumbnail", "rounded-circle", "post-thumbnail", "card");
+    authorAvatar.style.width = "20%";
 
     const author = document.createElement("p");
+    author.classList.add("mb-1");
     author.innerText = post.author.name;
 
     div.append(author);
+    div.append(authorAvatar);
+    div.append(heading);
 
     postContainer.append(div);
     const image = document.createElement("img");
@@ -76,5 +76,5 @@ export function renderPosts(posts, parent) {
     return;
   });
 
-  container.append(...html);
+  // container.append(...html);
 }
