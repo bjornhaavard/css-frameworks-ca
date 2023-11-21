@@ -1,3 +1,5 @@
+// import { getProfileData } from "../../api/posts/profile";
+
 export function displayProfileData(profileData) {
   // Replace the placeholder image with the user's avatar
   const profileImage = document.getElementById("profile-img");
