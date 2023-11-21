@@ -22,7 +22,9 @@ async function router() {
       return;
 
     case "/profile/":
+    case "/profile/index.html":
       displayProfileData();
+      post.getProfileData();
       return;
 
     case "/feed/newPost/":
