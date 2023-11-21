@@ -2,7 +2,6 @@ import { setLoginFormListener } from "./handlers/login.js";
 import { setRegisterFormListener } from "./handlers/register.js";
 import { displayPosts } from "./handlers/displayPosts.js";
 import * as post from "./api/posts/index.js";
-import { createPostFormListener } from "./handlers/createPost.js";
 import { displayPost } from "./handlers/displayPost.js";
 import { updateFormListener } from "./handlers/updatePost.js";
 import { searchPostHandler } from "./handlers/searchPosts.js";
@@ -28,7 +27,7 @@ async function router() {
       return;
 
     case "/feed/newPost/":
-      createPostFormListener();
+      handler.createPostFormListener();
 
       return;
 
