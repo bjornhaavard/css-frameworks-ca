@@ -1,16 +1,16 @@
-import { displayProfileData } from "../components/profile/profileHome";
+import { displayProfileData } from "../components/profile/profileHome.js";
 
 export async function displayProfile() {
   try {
-    // const placeHolder = document.querySelector("#spinner");
+    const placeHolder = document.querySelector("#spinner");
 
-    if (displayProfileData) {
+    if (displayProfileData()) {
       placeHolder.style.display = "none";
     }
     const profile = await api.getPosts();
 
-    displayProfileData(profile, "#profile-container");
-    console.log(posts);
+    displayProfileData(profile);
+    console.log(profile);
   } catch (error) {
     console.log(error);
   }

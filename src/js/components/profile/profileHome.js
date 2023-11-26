@@ -1,19 +1,16 @@
 import { defaultAvatarImage } from "../../api/constants.js";
-
-import { getPosts } from "../../api/posts/read.js";
+import { getProfile } from "../../api/posts/profile.js";
 import { getName } from "../../helpers/getName.js";
+import { displayMessage } from "../shared/displayMessage.js";
 
 export async function displayProfileData(profileData) {
   // Replace the placeholder image with the user's avatar
 
-  const fetchedProfile = await getPosts();
+  const fetchedProfile = await getProfile();
   const loggedInUsername = getName(fetchedProfile);
 
-  console.log(loggedInUsername);
   if (loggedInUsername) {
-    profileData = loggedInUsername.author;
-
-    console.log(profileData);
+    profileData = fetchedProfile;
 
     const { name, avatar, email, banner } = profileData;
 
@@ -38,5 +35,8 @@ export async function displayProfileData(profileData) {
       const profileBanner = document.getElementById("profile-banner");
       profileBanner.style.cssText = backgroundImageStyle;
     }
+  } else {
+    displayMessage("#profile-container", "Something went wrong", "danger");
+    return;
   }
 }
