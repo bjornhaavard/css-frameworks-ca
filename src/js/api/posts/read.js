@@ -1,3 +1,4 @@
+import { displayMessage } from "../../components/shared/displayMessage.js";
 import { API_SOCIAL_URL } from "../constants.js";
 import { fetchWithToken } from "../fetchWithToken.js";
 
@@ -16,6 +17,7 @@ export async function getPosts() {
 export async function getPost(id) {
   if (!id) {
     throw new Error("Get requires a postID");
+    displayMessage("parent", "Get requires a postID", "danger");
   }
 
   const getPostUrl = `${API_SOCIAL_URL}${action}/${id}?_author=true&_comments=true&_reactions=true`;
