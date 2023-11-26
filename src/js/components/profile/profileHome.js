@@ -1,28 +1,42 @@
-// import { getProfileData } from "../../api/posts/profile";
+import { defaultAvatarImage } from "../../api/constants.js";
 
-export function displayProfileData(profileData) {
+import { getPosts } from "../../api/posts/read.js";
+import { getName } from "../../helpers/getName.js";
+
+export async function displayProfileData(profileData) {
   // Replace the placeholder image with the user's avatar
-  const profileImage = document.getElementById("profile-img");
-  profileImage.src = profileData.avatar;
 
-  // Display the user's name
-  const nameElement = document.getElementById("name");
-  nameElement.textContent = profileData.name;
+  const fetchedProfile = await getPosts();
+  const loggedInUsername = getName(fetchedProfile);
 
-  // Display the user's email
-  const emailElement = document.createElement("p");
-  emailElement.textContent = `Email: ${profileData.email}`;
-  const cardBody = document.querySelector(".card-body");
-  cardBody.appendChild(emailElement);
+  console.log(loggedInUsername);
+  if (loggedInUsername) {
+    profileData = loggedInUsername.author;
 
-  // Display the user's banner image if available
-  if (profileData.banner) {
-    const bannerImage = document.createElement("img");
-    bannerImage.src = profileData.banner;
-    bannerImage.classList.add("img-fluid");
-    bannerImage.style.width = "100%";
-    bannerImage.style.height = "auto";
-    const cardHeader = document.querySelector(".rounded-top");
-    cardHeader.insertBefore(bannerImage, cardHeader.firstChild);
+    console.log(profileData);
+
+    const { name, avatar, email, banner } = profileData;
+
+    const profileImage = document.getElementById("profile-img");
+
+    profileImage.src = avatar || defaultAvatarImage;
+
+    // Display the user's name
+    const nameElement = document.getElementById("profile-name");
+    nameElement.textContent = `Name: ${name}`;
+
+    // Display the user's email
+    const emailElement = document.getElementById("profile-email");
+    emailElement.textContent = `Email: ${email}`;
+
+    // Display the user's banner image if available
+    if (banner) {
+      const backgroundImageStyle = `
+    background: url(${banner}) no-repeat center/cover;
+    background-size: cover;`;
+
+      const profileBanner = document.getElementById("profile-banner");
+      profileBanner.style.cssText = backgroundImageStyle;
+    }
   }
 }
