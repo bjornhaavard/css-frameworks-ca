@@ -3,10 +3,10 @@ import { setRegisterFormListener } from "./handlers/register.js";
 import { displayPosts } from "./handlers/displayPosts.js";
 import * as post from "./api/posts/index.js";
 import { displayPost } from "./handlers/displayPost.js";
-import { updateFormListener } from "./handlers/updatePost.js";
 import { searchPostHandler } from "./handlers/searchPosts.js";
 import * as handler from "./handlers/index.js";
 import { displayProfileData } from "./components/profile/profileHome.js";
+// import { displayProfile } from "./handlers/displayProfile.js";
 
 async function router() {
   const pathname = window.location.pathname;
@@ -23,7 +23,7 @@ async function router() {
     case "/profile/":
     case "/profile/index.html":
       displayProfileData();
-      post.getProfileData();
+      // post.getProfileData();
       return;
 
     case "/feed/newPost/":
@@ -33,7 +33,7 @@ async function router() {
 
     case "/feed/edit/":
     case "/feed/edit/index.html":
-      updateFormListener();
+      handler.updateFormListener();
       return;
 
     case "/feed/":
