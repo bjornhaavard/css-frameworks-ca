@@ -39,26 +39,23 @@
     </header>
     <main class="flex-shrink-0">
       <section class="h-100 gradient-custom-2">
+        <div id="profile-container"></div>
         <div class="container py-5 h-100">
           <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col col-lg-9 col-xl-7">
               <div class="card">
-                <div class="rounded-top text-white d-flex flex-row bg-primary">
+                <div class="rounded-top text-white d-flex flex-row bg-primary" id="profile-banner">
+                  <!-- <img src="" id="profile-banner" alt="" class="aspect-[5/2] object-cover" /> -->
                   <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px">
-                    <img
-                      id="profile-img"
-                      src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-                      alt="Generic placeholder image"
-                      class="img-fluid img-thumbnail mt-4 mb-2"
-                      style="width: 150px; z-index: 1"
-                    />
-                    <button type="button" class="btn profile-btn btn-outline-dark margin-bottom-1rem" data-mdb-ripple-color="dark">Edit profile</button>
-                  </div>
-                  <div class="ms-3" style="margin-top: 130px">
-                    <h5 id="name">Andy Horwitz</h5>
+                    <img id="profile-img" src="" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1" />
+                    <button type="button" class="btn profile-btn btn-outline-dark margin-bottom-1rem" data-mdb-ripple-color="light">Edit profile</button>
                   </div>
                 </div>
                 <div class="p-2 text-white">
+                  <div class="ms-3">
+                    <h5 id="profile-name"></h5>
+                    <h5 id="profile-email"></h5>
+                  </div>
                   <div class="py-1">
                     <div class="card-body p-3 text-white">
                       <div class="container mb-3 d-flex justify-content-center">
