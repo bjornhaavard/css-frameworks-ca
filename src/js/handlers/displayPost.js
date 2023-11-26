@@ -3,6 +3,7 @@ import { getParamFromQueryString } from "../helpers/getParamFromQueryString.js";
 import { displayMessage } from "../components/shared/displayMessage.js";
 import { renderAdminButtons } from "../components/posts/renderAdminButtons.js";
 import { getPostComments } from "../helpers/makeComments.js";
+import { defaultImage } from "../api/constants.js";
 
 export async function displayPost(container = "#post-container") {
   const parentElement = document.querySelector(container);
@@ -14,6 +15,9 @@ export async function displayPost(container = "#post-container") {
   }
 
   const post = await getPost(id);
+
+  const { title, body, media, name } = post;
+
   parentElement.classList.add("d-flex");
   parentElement.classList.add("row");
   parentElement.classList.add("row-cols-lg-2");
@@ -37,7 +41,7 @@ export async function displayPost(container = "#post-container") {
   div.classList.add("m-3");
 
   const heading = document.createElement("h3");
-  heading.innerText = post.title;
+  heading.innerText = title;
 
   div.append(heading);
 
@@ -46,22 +50,21 @@ export async function displayPost(container = "#post-container") {
 
   div.append(author);
 
-  const body = document.createElement("p");
-  body.innerText = post.body;
+  const bodyPara = document.createElement("p");
+  bodyPara.innerText = body;
 
-  div.append(body);
+  div.append(bodyPara);
 
   parentElement.append(div);
   const image = document.createElement("img");
-  const defaultImage = "https://www.pacificfoodmachinery.com.au/media/catalog/product/placeholder/default/no-product-image-400x400_1.png";
-  image.src = post.media || defaultImage;
+  image.src = media || defaultImage;
 
   div.append(image);
   divContainer.append(div);
 
   div.append(commentSection);
 
-  renderAdminButtons(div, post.author.name, post.id);
+  renderAdminButtons(div, name, id);
 
   getPostComments();
 }

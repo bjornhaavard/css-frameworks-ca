@@ -1,3 +1,4 @@
+import { defaultAvatarImage } from "../../api/constants.js";
 import { displayMessage } from "../shared/displayMessage.js";
 
 export function renderPosts(posts, parent) {
@@ -10,8 +11,10 @@ export function renderPosts(posts, parent) {
     displayMessage("#search-message", "No posts found, please try again", "warning");
   }
 
-  const html = posts.map(function (post) {
+  posts.map(function (post) {
     const postContainer = document.querySelector("#posts-container");
+
+    const { id, title, media } = post;
 
     const filterButton = document.createElement("btn");
     filterButton.classList.add("btn", "btn-primary");
@@ -43,13 +46,13 @@ export function renderPosts(posts, parent) {
     link.classList.add("btn-primary");
     link.classList.add("mt-3");
     link.classList.add("align-self-end");
-    link.href = `/feed/post/index.html?id=${post.id}`;
+    link.href = `/feed/post/index.html?id=${id}`;
 
     const heading = document.createElement("h3");
-    heading.innerText = post.title;
+    heading.innerText = title;
 
     const authorAvatar = document.createElement("img");
-    const defaultAvatarImage = "https://static.vecteezy.com/system/resources/thumbnails/009/734/564/small/default-avatar-profile-icon-of-social-media-user-vector.jpg";
+
     authorAvatar.src = post.author.avatar || defaultAvatarImage;
 
     authorAvatar.classList.add("img-fluid", "img-thumbnail", "rounded-circle", "post-thumbnail", "card");
@@ -67,7 +70,7 @@ export function renderPosts(posts, parent) {
     const image = document.createElement("img");
     const defaultImage = "https://www.pacificfoodmachinery.com.au/media/catalog/product/placeholder/default/no-product-image-400x400_1.png";
     image.classList.add("w-100");
-    image.src = post.media || defaultImage;
+    image.src = media || defaultImage;
 
     div.append(image);
     div.append(link);
