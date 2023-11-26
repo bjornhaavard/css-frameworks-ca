@@ -1,4 +1,12 @@
 // import { deletePost } from "../../handlers/deletePost.js";
+/**
+ * Renders admin buttons for a post.
+ *
+ * @param {HTMLElement} parent - The parent element to which the buttons will be appended.
+ * @param {string} authorName - The name of the post author.
+ * @param {string} postId - The ID of the post.
+ */
+
 import { removePost } from "../../api/posts/delete.js";
 import { getName } from "../../helpers/getName.js";
 import { displayMessage } from "../shared/displayMessage.js";
