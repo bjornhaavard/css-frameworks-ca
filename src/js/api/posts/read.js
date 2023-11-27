@@ -26,6 +26,5 @@ export async function getPost(id) {
   if (response.ok) {
     return await response.json();
   }
-
   throw new Error(response.statusText);
 }

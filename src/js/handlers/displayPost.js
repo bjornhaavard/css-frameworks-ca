@@ -16,7 +16,8 @@ export async function displayPost(container = "#post-container") {
 
   const post = await getPost(id);
 
-  const { title, body, media, name } = post;
+  const { title, body, media } = post;
+  // const { authorName, authorId } = post.author;
 
   parentElement.classList.add("d-flex");
   parentElement.classList.add("row");
@@ -64,7 +65,7 @@ export async function displayPost(container = "#post-container") {
 
   div.append(commentSection);
 
-  renderAdminButtons(div, name, id);
+  renderAdminButtons(div, post.author.name, post.author.id);
 
   getPostComments();
 }

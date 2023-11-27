@@ -5,8 +5,8 @@ export function headers() {
   const token = load("token");
 
   if (!token) {
-    // throw new Error("No token, pal");
-    displayMessage("#error-message", 'No token, go to <a href="/">Login page</a>', "danger");
+    throw new Error("No token, pal");
+    // displayMessage("#error-message", 'No token, go to <a href="/">Login page</a>', "danger");
   }
 
   return {
