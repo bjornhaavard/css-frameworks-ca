@@ -10,33 +10,35 @@ export async function displayProfileData(profileData) {
   const loggedInUsername = getName(fetchedProfile);
 
   if (loggedInUsername) {
-    profileData = fetchedProfile;
+    try {
+      profileData = fetchedProfile;
 
-    const { name, avatar, email, banner } = profileData;
+      const { name, avatar, email, banner } = profileData;
 
-    const profileImage = document.getElementById("profile-img");
+      const profileImage = document.getElementById("profile-img");
 
-    profileImage.src = avatar || defaultAvatarImage;
+      profileImage.src = avatar || defaultAvatarImage;
 
-    // Display the user's name
-    const nameElement = document.getElementById("profile-name");
-    nameElement.textContent = `Name: ${name}`;
+      // Display the user's name
+      const nameElement = document.getElementById("profile-name");
+      nameElement.textContent = `Name: ${name}`;
 
-    // Display the user's email
-    const emailElement = document.getElementById("profile-email");
-    emailElement.textContent = `Email: ${email}`;
+      // Display the user's email
+      const emailElement = document.getElementById("profile-email");
+      emailElement.textContent = `Email: ${email}`;
 
-    // Display the user's banner image if available
-    if (banner) {
-      const backgroundImageStyle = `
+      // Display the user's banner image if available
+      if (banner) {
+        const backgroundImageStyle = `
     background: url(${banner}) no-repeat center/cover;
     background-size: cover;`;
 
-      const profileBanner = document.getElementById("profile-banner");
-      profileBanner.style.cssText = backgroundImageStyle;
+        const profileBanner = document.getElementById("profile-banner");
+        profileBanner.style.cssText = backgroundImageStyle;
+      }
+    } catch (error) {
+      displayMessage("#profile-container", "Something went wrong", "danger");
+      return;
     }
-  } else {
-    displayMessage("#profile-container", "Something went wrong", "danger");
-    return;
   }
 }
