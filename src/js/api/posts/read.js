@@ -5,7 +5,7 @@ import { fetchWithToken } from "../fetchWithToken.js";
 const action = "/posts";
 
 export async function getPosts() {
-  const response = await fetchWithToken(`${API_SOCIAL_URL}/posts?_reactions=true&_author=true&_comments=true?_limit=20`);
+  const response = await fetchWithToken(`${API_SOCIAL_URL}/posts?_reactions=true&_author=true&_comments=true&_limit=20`);
 
   if (response.ok) {
     return await response.json();
@@ -17,7 +17,7 @@ export async function getPosts() {
 export async function getPost(id) {
   if (!id) {
     throw new Error("Get requires a postID");
-    displayMessage("parent", "Get requires a postID", "danger");
+    displayMessage("#post-container", "Get requires a postID", "danger");
   }
 
   const getPostUrl = `${API_SOCIAL_URL}${action}/${id}?_author=true&_comments=true&_reactions=true`;
