@@ -2,7 +2,7 @@
 /**
  * Renders admin buttons for a post.
  *
- * @param {HTMLElement} parent - The parent element to which the buttons will be appended.
+ * @param {HTML Element} parent - The parent element to which the buttons will be appended.
  * @param {string} authorName - The name of the post author.
  * @param {string} postId - The ID of the post.
  */

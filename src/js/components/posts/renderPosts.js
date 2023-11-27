@@ -15,6 +15,7 @@ export function renderPosts(posts, parent) {
     const postContainer = document.querySelector("#posts-container");
 
     const { id, title, media } = post;
+    const { avatar, name } = post.author;
 
     const filterButton = document.createElement("btn");
     filterButton.classList.add("btn", "btn-primary");
@@ -31,8 +32,8 @@ export function renderPosts(posts, parent) {
     postContainer.append(divContainer);
 
     const div = document.createElement("div");
-    div.classList.add("card");
-    div.classList.add("col-sm-6");
+    div.classList.add("card", "col-sm-6");
+
     div.classList.add("shadow-lg");
     div.classList.add("rounded-4");
     div.classList.add("g-4");
@@ -53,14 +54,14 @@ export function renderPosts(posts, parent) {
 
     const authorAvatar = document.createElement("img");
 
-    authorAvatar.src = post.author.avatar || defaultAvatarImage;
+    authorAvatar.src = avatar || defaultAvatarImage;
 
     authorAvatar.classList.add("img-fluid", "img-thumbnail", "rounded-circle", "post-thumbnail", "card");
     authorAvatar.style.width = "20%";
 
     const author = document.createElement("p");
     author.classList.add("mb-1");
-    author.innerText = post.author.name;
+    author.innerText = name;
 
     div.append(author);
     div.append(authorAvatar);
