@@ -6,12 +6,13 @@ export async function updateFormListener() {
 
   const url = new URL(location.href);
   const id = url.searchParams.get("id");
-
+  console.log(id);
   if (form) {
     const button = form.querySelector("button");
     button.disabled = true;
 
     const post = await getPost(id);
+    console.log(post);
 
     form.title.value = post.title;
     form.body.value = post.body;

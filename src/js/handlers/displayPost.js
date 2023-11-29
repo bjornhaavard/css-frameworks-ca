@@ -65,7 +65,7 @@ export async function displayPost(container = "#post-container") {
 
   div.append(commentSection);
 
-  renderAdminButtons(div, post.author.name, post.author.id);
+  renderAdminButtons(div, post.author.name, id);
 
   getPostComments();
 }

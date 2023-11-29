@@ -14,12 +14,16 @@ export function renderPosts(posts, parent) {
   posts.map(function (post) {
     const postContainer = document.querySelector("#posts-container");
 
-    const { id, title, media } = post;
-    const { avatar, name } = post.author;
+    const {
+      id,
+      title,
+      media,
+      author: { avatar, name },
+    } = post;
 
-    const filterButton = document.createElement("btn");
-    filterButton.classList.add("btn", "btn-primary");
-    filterButton.innerText = "filter";
+    // const filterButton = document.createElement("btn");
+    // filterButton.classList.add("btn", "btn-primary");
+    // filterButton.innerText = "filter";
 
     const divContainer = document.createElement("div");
     divContainer.classList.add("row");
@@ -79,6 +83,4 @@ export function renderPosts(posts, parent) {
 
     return;
   });
-
-  // container.append(...html);
 }

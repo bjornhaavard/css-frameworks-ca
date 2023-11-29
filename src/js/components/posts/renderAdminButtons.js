@@ -8,6 +8,7 @@
  */
 
 import { removePost } from "../../api/posts/delete.js";
+import { deletePost } from "../../handlers/deletePost.js";
 import { getName } from "../../helpers/getName.js";
 import { displayMessage } from "../shared/displayMessage.js";
 
@@ -44,6 +45,7 @@ export function renderAdminButtons(parent, authorName, postId) {
   removeButton.addEventListener("click", async () => {
     try {
       await removePost(postId);
+      deletePost();
     } catch (error) {
       console.log("error delete", error);
       displayMessage("#deleteMessage", 'Post deleted. Please go to <a href="/feed/">Feed</a>', "success");
