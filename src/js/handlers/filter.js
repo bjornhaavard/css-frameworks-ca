@@ -1,30 +1,27 @@
 import { API_SOCIAL_URL } from "../api/constants.js";
 import { fetchWithToken } from "../api/fetchWithToken.js";
 import { renderPosts } from "../components/posts/renderPosts.js";
-// import { getPosts } from "../api/posts.js";
+import { displayMessage } from "../components/shared/displayMessage.js";
 
-export async function getPostsWithComments(posts) {
+export async function getPostsWithComments() {
   const response = await fetchWithToken(`${API_SOCIAL_URL}/posts?_reactions=true&_author=true&_comments=true&_limit=20`);
-  // const container = document.querySelector("#posts-container");
 
   if (response.ok) {
     const postsData = await response.json();
 
     const postsWithComments = postsData.filter((post) => post.comments.length > 0);
-    // renderPosts;
-    renderPosts(postsWithComments, "#posts-container");
-    console.log(postsWithComments);
-    return;
+    const filterCommentsButton = document.querySelector("#filter-posts");
+
+    filterCommentsButton.addEventListener("click", async (event) => {
+      event.preventDefault();
+
+      const posts = await getPostsWithComments();
+
+      renderPosts(posts, "#posts-container");
+    });
+
+    return postsWithComments;
   }
 
-  throw new Error(response.statusText);
+  throw new Error(displayMessage("#posts-container", "There was an error", "danger"));
 }
-
-const filterCommentsButton = document.querySelector("#filter-posts");
-
-filterCommentsButton.addEventListener("click", async (event) => {
-  event.preventDefault();
-
-  const posts = await getPostsWithComments();
-  // console.log(filterPost);
-});
