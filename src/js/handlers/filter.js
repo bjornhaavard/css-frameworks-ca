@@ -12,6 +12,7 @@ export async function getPostsWithComments(posts) {
 
     const postsWithComments = postsData.filter((post) => post.comments.length > 0);
     // renderPosts;
+    renderPosts(postsWithComments, "#posts-container");
     console.log(postsWithComments);
     return;
   }
@@ -26,5 +27,4 @@ filterCommentsButton.addEventListener("click", async (event) => {
 
   const posts = await getPostsWithComments();
   // console.log(filterPost);
-  renderPosts(posts, "#posts-container");
 });
