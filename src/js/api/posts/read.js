@@ -5,7 +5,7 @@ import { fetchWithToken } from "../fetchWithToken.js";
 const action = "/posts";
 
 export async function getPosts() {
-  const response = await fetchWithToken(`${API_SOCIAL_URL}/posts?_reactions=true&_author=true&_comments=true&_limit=20`);
+  const response = await fetchWithToken(`${API_SOCIAL_URL}/posts?_reactions=true&_author=true&_comments=true&limit=70`);
 
   if (response.ok) {
     return await response.json();
