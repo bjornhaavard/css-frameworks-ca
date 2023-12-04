@@ -10,9 +10,12 @@ export async function displayProfileData(profileData) {
   const loggedInUsername = getName(fetchedProfile);
 
   if (loggedInUsername) {
+    const placeHolder = document.querySelector("#profile-spinner");
     try {
       profileData = fetchedProfile;
-
+      if (profileData) {
+        placeHolder.style.display = "none";
+      }
       const { name, avatar, email, banner } = profileData;
 
       const profileImage = document.getElementById("profile-img");
