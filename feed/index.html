@@ -44,6 +44,7 @@
     <main class="flex-shrink-0">
       <section>
         <div class="container py-5" id="custom-cards">
+          <div id="feed-delete-message"></div>
           <h1 class="pb-2 border-bottom">Posts</h1>
           <div class="d-flex justify-content-between nav-item">
             <a href="/feed/newPost/"> <button type="button" id="new-post-button" class="btn btn-primary">New Post</button> </a>
@@ -62,14 +63,11 @@
           </div>
         </div>
         <div id="search-message" class="container-sm"></div>
-        <!-- <div id="filter-container" class="text-align-center d-flex align-self-center">
-          <button id="filter-button" class="btn btn-primary">Posts w/comments</button>
-        </div> -->
+
         <div id="posts-container" class="container">
           <div id="error-message"></div>
-          <div>
-            <button class="btn btn-primary">Filter</button>
-          </div>
+          <div id="filter-message"></div>
+
           <div class="d-flex justify-content-center">
             <div class="spinner-border" id="spinner" role="status">
               <!-- <span class="visually-hidden">Loading...</span> -->
