@@ -56,7 +56,9 @@ export function renderPosts(posts, parent) {
 
     authorAvatar.src = avatar || defaultAvatarImage;
 
-    authorAvatar.classList.add("img-fluid", "img-thumbnail", "rounded-circle", "post-thumbnail", "card");
+    console.log(authorAvatar);
+
+    authorAvatar.classList.add("img-fluid", "img-thumbnail", "rounded-2", "post-thumbnail", "card");
     authorAvatar.style.width = "20%";
 
     const author = document.createElement("p");

@@ -2,7 +2,7 @@ import { getPost } from "../api/posts/index.js";
 import { getParamFromQueryString } from "../helpers/getParamFromQueryString.js";
 import { renderAdminButtons } from "../components/posts/renderAdminButtons.js";
 import { getPostComments } from "../helpers/makeComments.js";
-import { defaultImage } from "../api/constants.js";
+import { defaultAvatarImage, defaultImage } from "../api/constants.js";
 
 export async function displayPost(container = "#post-container") {
   const parentElement = document.querySelector(container);
@@ -15,7 +15,12 @@ export async function displayPost(container = "#post-container") {
 
   const post = await getPost(id);
 
-  const { title, body, media } = post;
+  const {
+    title,
+    body,
+    media,
+    author: { avatar, name },
+  } = post;
 
   parentElement.classList.add("d-flex");
   parentElement.classList.add("row");
@@ -44,8 +49,14 @@ export async function displayPost(container = "#post-container") {
 
   div.append(heading);
 
+  const authAvatar = document.createElement("img");
+  authAvatar.classList.add("img-fluid", "img-thumbnail", "rounded-2", "post-thumbnail", "card");
+  authAvatar.style.width = "18%";
+  authAvatar.src = avatar || defaultAvatarImage;
+
+  div.append(authAvatar);
   const author = document.createElement("p");
-  author.innerText = post.author.name;
+  author.innerText = name;
 
   div.append(author);
 
@@ -63,7 +74,7 @@ export async function displayPost(container = "#post-container") {
 
   div.append(commentSection);
 
-  renderAdminButtons(div, post.author.name, id);
+  renderAdminButtons(div, name, id);
 
   getPostComments();
 }
