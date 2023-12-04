@@ -21,6 +21,7 @@ export async function searchPostHandler() {
       const posts = await searchPosts(searchQuery);
       console.log(posts);
       renderPosts(posts, "#posts-container");
+      displayMessage("#filter-message", `Showing ${posts.length} posts from search`, "success");
     } catch (error) {
       console.log(error);
       displayMessage(error, "#post-container", "danger");
