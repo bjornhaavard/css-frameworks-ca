@@ -33,8 +33,8 @@ export async function displayProfileData(profileData) {
       // Display the user's banner image if available
       if (banner) {
         const backgroundImageStyle = `
-    background: url(${banner}) no-repeat center/cover;
-    background-size: cover;`;
+        background: url(${banner}) no-repeat center/cover;
+        background-size: cover;`;
 
         const profileBanner = document.getElementById("profile-banner");
         profileBanner.style.cssText = backgroundImageStyle;
