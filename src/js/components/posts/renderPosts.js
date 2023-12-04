@@ -56,8 +56,6 @@ export function renderPosts(posts, parent) {
 
     authorAvatar.src = avatar || defaultAvatarImage;
 
-    console.log(authorAvatar);
-
     authorAvatar.classList.add("img-fluid", "img-thumbnail", "rounded-2", "post-thumbnail", "card");
     authorAvatar.style.width = "20%";
 
