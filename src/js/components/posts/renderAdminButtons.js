@@ -1,4 +1,3 @@
-// import { deletePost } from "../../handlers/deletePost.js";
 /**
  * Renders admin buttons for a post.
  *
@@ -45,10 +44,11 @@ export function renderAdminButtons(parent, authorName, postId) {
   removeButton.addEventListener("click", async () => {
     try {
       await removePost(postId);
-      deletePost();
+      deletePost(postId);
+      location.href = "/feed";
     } catch (error) {
       console.log("error delete", error);
-      displayMessage("#deleteMessage", 'Post deleted. Please go to <a href="/feed/">Feed</a>', "success");
+      displayMessage("#deleteMessage", `"Something went wrong" ${error}`, "danger");
     }
   });
 
