@@ -21,10 +21,6 @@ export function renderPosts(posts, parent) {
       author: { avatar, name },
     } = post;
 
-    // const filterButton = document.createElement("btn");
-    // filterButton.classList.add("btn", "btn-primary");
-    // filterButton.innerText = "filter";
-
     const divContainer = document.createElement("div");
     divContainer.classList.add("row");
     divContainer.classList.add("row-cols-lg-3");
@@ -73,9 +69,8 @@ export function renderPosts(posts, parent) {
 
     postContainer.append(div);
     const image = document.createElement("img");
-    const defaultImage = "https://www.pacificfoodmachinery.com.au/media/catalog/product/placeholder/default/no-product-image-400x400_1.png";
     image.classList.add("w-100");
-    image.src = media || defaultImage;
+    image.src = media;
 
     div.append(image);
     div.append(link);

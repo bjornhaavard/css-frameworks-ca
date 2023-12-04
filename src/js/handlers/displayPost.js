@@ -1,6 +1,5 @@
 import { getPost } from "../api/posts/index.js";
 import { getParamFromQueryString } from "../helpers/getParamFromQueryString.js";
-import { displayMessage } from "../components/shared/displayMessage.js";
 import { renderAdminButtons } from "../components/posts/renderAdminButtons.js";
 import { getPostComments } from "../helpers/makeComments.js";
 import { defaultImage } from "../api/constants.js";
@@ -17,7 +16,6 @@ export async function displayPost(container = "#post-container") {
   const post = await getPost(id);
 
   const { title, body, media } = post;
-  // const { authorName, authorId } = post.author;
 
   parentElement.classList.add("d-flex");
   parentElement.classList.add("row");

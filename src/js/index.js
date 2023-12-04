@@ -7,8 +7,6 @@ import { searchPostHandler } from "./handlers/searchPosts.js";
 import * as handler from "./handlers/index.js";
 import { displayProfileData } from "./components/profile/profileHome.js";
 import { getPostsWithComments } from "./handlers/filter.js";
-// import { deletePost } from "./handlers/deletePost.js";
-// import { logOut } from "./handlers/logOut.js";
 
 async function router() {
   const pathname = window.location.pathname;
@@ -26,7 +24,7 @@ async function router() {
     case "/profile/index.html":
       displayProfileData();
 
-      // handler.logOut();
+      handler.logOut();
       return;
 
     case "/feed/newPost/":
