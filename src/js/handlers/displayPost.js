@@ -6,7 +6,7 @@ import { defaultAvatarImage, defaultImage } from "../api/constants.js";
 
 export async function displayPost(container = "#post-container") {
   const parentElement = document.querySelector(container);
-
+  const placeHolder = document.querySelector("#spinner");
   const id = getParamFromQueryString("id");
 
   if (!id) {
@@ -14,7 +14,9 @@ export async function displayPost(container = "#post-container") {
   }
 
   const post = await getPost(id);
-
+  if (post) {
+    placeHolder.style.display = "none";
+  }
   const {
     title,
     body,
