@@ -40,7 +40,6 @@ export async function getPostComments() {
   } else {
     const commentSection = document.querySelector("#commentSection");
 
-    // commentSection.classList.add("dflex");
     commentSection.classList.add("row");
     commentSection.classList.add("row-cols-lg-1");
     commentSection.classList.add("justify-content-center");

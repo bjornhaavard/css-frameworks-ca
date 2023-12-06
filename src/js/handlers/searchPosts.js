@@ -17,7 +17,7 @@ export async function searchPostHandler() {
 
     try {
       const posts = await searchPosts(searchQuery);
-      console.log(posts);
+
       renderPosts(posts, "#posts-container");
 
       displayMessage("#filter-message", `Showing ${posts.length} posts from search`, "success");

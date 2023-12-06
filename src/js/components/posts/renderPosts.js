@@ -7,9 +7,9 @@ export function renderPosts(posts, parent) {
   container.innerHTML = "";
   searchMessage.innerHTML = "";
 
-  if (posts.length === 0) {
-    displayMessage("#search-message", "No posts found, please try again", "warning");
-  }
+  // if (posts.length === 0) {
+  //   displayMessage("#search-message", "No posts found, please try again", "warning");
+  // }
 
   posts.map(function (post) {
     const postContainer = document.querySelector("#posts-container");
@@ -22,23 +22,12 @@ export function renderPosts(posts, parent) {
     } = post;
 
     const divContainer = document.createElement("div");
-    divContainer.classList.add("row");
-    divContainer.classList.add("row-cols-lg-3");
-    divContainer.classList.add("align-items-stretch");
-    divContainer.classList.add("justify-content-center");
-    divContainer.classList.add("g-3");
-    divContainer.classList.add("m-3");
+    divContainer.classList.add("row", "row-cols-lg-3", "align-items-stretch", "justify-content-center", "g-3", "m-3");
 
     postContainer.append(divContainer);
 
     const div = document.createElement("div");
-    div.classList.add("card", "col-sm-6");
-
-    div.classList.add("shadow-lg");
-    div.classList.add("rounded-4");
-    div.classList.add("g-4");
-    div.classList.add("p-4");
-    div.classList.add("m-3");
+    div.classList.add("card", "col-sm-6", "shadow-lg", "rounded-4", "g-4", "p-4", "m-3");
 
     const link = document.createElement("a");
 
