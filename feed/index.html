@@ -52,52 +52,33 @@
       <section>
         <div class="container py-5" id="custom-cards">
           <h1 class="pb-2 border-bottom">Posts</h1>
-          <div class="d-flex justify-content-between">
-            <a href="/feed/newPost/">
-          <button type="button" id="new-post-button" class="btn btn-primary" >New Post</button>
-        </a>
-          <li class="nav-item dropdown list-unstyled">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-label="dropdown sort menu" aria-expanded="false">Sort</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" aria-label="sort by date" href="#">Date</a></li>
-              <li><a class="dropdown-item" aria-label="sort by place" href="#">Place</a></li>
-            </ul>
-          </li>
+          <div class="d-flex justify-content-between nav-item">
+            <a href="/feed/newPost/"> <button type="button" id="new-post-button" class="btn btn-primary">New Post</button> </a>
+            <li class="nav-item dropdown list-unstyled"></li>
+
+            <li class="nav-item dropdown list-unstyled">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-label="dropdown sort menu" aria-expanded="false">Sort/Filter</a>
+              <ul class="dropdown-menu" id="sortDropdown">
+                <li><a class="dropdown-item" aria-label="sort by newest" href="#" data-sort="created" data-sort-order="desc">Newest</a></li>
+                <li><a class="dropdown-item" aria-label="sort for oldest" href="#" data-sort="created" data-sort-order="asc">Oldest</a></li>
+              </ul>
+              <ul class="filter-menu list-unstyled icon-link icon-link-hover">
+                <li><a class="icon-link icon-link-hover" style="--bs-link-hover-color-rgb: 11, 117, 11" id="filter-posts" href="#">Posts w/comment</a></li>
+              </ul>
+            </li>
+          </div>
         </div>
-        <div id="posts-container" class="d-flex row row-cols-lg-2"></div>
-          <!-- <div class="row row-cols-1 row-cols-lg-2 align-items-stretch g-4 py-5">
-            <div class="col">
-              <div class="card card-cover post h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
-                <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                  <h3 class="pt-5 mt-0 mb-4 display-6 lh-1 fw-bold" id="post-title">Lorem ipsum dolor</h3>
-                  <p id="author"></p>
-                  <div>
-                    <p id="body-text">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, laudantium? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis sed nostrum quia, ducimus ratione
-                      accusamus dolores recusandae minus unde non eligendi mollitia expedita tempore ipsam itaque. Ut mollitia possimus repudiandae. Lorem ipsum dolor sit, amet consectetur adipisicing
-                      elit. Ex pariatur distinctio esse minima eveniet optio possimus quos dolor! Exercitationem alias velit porro, iusto ad dolore incidunt tempora! Culpa, ratione quod.
-                    </p>
-                  </div>
-                  <div id="image-container"></div>
-                  <ul class="d-flex list-unstyled mt-auto">
-                    <li class="me-auto">
-                      <span>👽</span>
-                      <span>👍</span>
-                    </li>
-                    <li class="d-flex align-items-center me-3">
-                      <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
-                      <small>Earth</small>
-                    </li>
-                    <li class="d-flex align-items-center flex-wrap">
-                      <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
-                      <small>3d</small>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div> -->
+        <div id="search-message" class="container-sm"></div>
+        <div class="container" id="filter-message"></div>
+        <div id="posts-container" class="container">
+          <div id="error-message"></div>
+
+          <div class="d-flex justify-content-center">
+            <div class="spinner-border" id="spinner" role="status"></div>
+          </div>
         </div>
+
+        <!-- </div> -->
       </section>
 
     </main>

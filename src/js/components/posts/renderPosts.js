@@ -1,3 +1,4 @@
+import { defaultAvatarImage } from "../../api/constants.js";
 import { displayMessage } from "../shared/displayMessage.js";
 
 export function renderPosts(posts, parent) {
@@ -6,35 +7,27 @@ export function renderPosts(posts, parent) {
   container.innerHTML = "";
   searchMessage.innerHTML = "";
 
-  if (posts.length === 0) {
-    displayMessage("#search-message", "No posts found, please try again", "danger");
-  }
+  // if (posts.length === 0) {
+  //   displayMessage("#search-message", "No posts found, please try again", "warning");
+  // }
 
-  const html = posts.map(function (post) {
+  posts.map(function (post) {
     const postContainer = document.querySelector("#posts-container");
 
-    postContainer.classList.add("d-flex");
-    postContainer.classList.add("row");
-    postContainer.classList.add("row-cols-1");
+    const {
+      id,
+      title,
+      media,
+      author: { avatar, name },
+    } = post;
 
     const divContainer = document.createElement("div");
-    divContainer.classList.add("row");
-    divContainer.classList.add("row-cols-lg-3");
-    divContainer.classList.add("align-items-stretch");
-    divContainer.classList.add("justify-content-center");
-    divContainer.classList.add("g-3");
-    divContainer.classList.add("py-5");
+    divContainer.classList.add("row", "row-cols-lg-3", "align-items-stretch", "justify-content-center", "g-3", "m-3");
 
     postContainer.append(divContainer);
 
     const div = document.createElement("div");
-    div.classList.add("card");
-    div.classList.add("col-sm-10");
-    div.classList.add("shadow-lg");
-    div.classList.add("rounded-4");
-    div.classList.add("g-4");
-    div.classList.add("p-4");
-    div.classList.add("m-3");
+    div.classList.add("card", "col-sm-6", "shadow-lg", "rounded-4", "g-4", "p-4", "m-3");
 
     const link = document.createElement("a");
 
@@ -43,31 +36,30 @@ export function renderPosts(posts, parent) {
     link.classList.add("btn-primary");
     link.classList.add("mt-3");
     link.classList.add("align-self-end");
-    link.href = `/feed/post/index.html?id=${post.id}`;
+    link.href = `/feed/post/index.html?id=${id}`;
 
     const heading = document.createElement("h3");
-    heading.innerText = post.title;
-
-    div.append(heading);
+    heading.innerText = title;
 
     const authorAvatar = document.createElement("img");
-    const defaultAvatarImage = "https://static.vecteezy.com/system/resources/thumbnails/009/734/564/small/default-avatar-profile-icon-of-social-media-user-vector.jpg";
-    authorAvatar.src = post.author.avatar || defaultAvatarImage;
 
-    authorAvatar.classList.add("img-fluid", "img-thumbnail", "rounded-circle", "w-25", "h-25", "post-thumbnail", "card");
+    authorAvatar.src = avatar || defaultAvatarImage;
 
-    div.append(authorAvatar);
+    authorAvatar.classList.add("img-fluid", "img-thumbnail", "rounded-2", "post-thumbnail", "card");
+    authorAvatar.style.width = "20%";
 
     const author = document.createElement("p");
-    author.innerText = post.author.name;
+    author.classList.add("mb-1");
+    author.innerText = name;
 
     div.append(author);
+    div.append(authorAvatar);
+    div.append(heading);
 
     postContainer.append(div);
     const image = document.createElement("img");
-    const defaultImage = "https://www.pacificfoodmachinery.com.au/media/catalog/product/placeholder/default/no-product-image-400x400_1.png";
     image.classList.add("w-100");
-    image.src = post.media || defaultImage;
+    image.src = media;
 
     div.append(image);
     div.append(link);
@@ -75,6 +67,4 @@ export function renderPosts(posts, parent) {
 
     return;
   });
-
-  container.append(...html);
 }

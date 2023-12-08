@@ -1,12 +1,20 @@
-// import { deletePost } from "../../handlers/deletePost.js";
+/**
+ * Renders admin buttons for a post.
+ *
+ * @param {HTML Element} parent - The parent element to which the buttons will be appended.
+ * @param {string} authorName - The name of the post author.
+ * @param {string} postId - The ID of the post.
+ */
+
 import { removePost } from "../../api/posts/delete.js";
+import { deletePost } from "../../handlers/deletePost.js";
 import { getName } from "../../helpers/getName.js";
 import { displayMessage } from "../shared/displayMessage.js";
 
 export function renderAdminButtons(parent, authorName, postId) {
   const loggedInUsername = getName();
 
-  console.log(loggedInUsername);
+  console.log();
 
   if (loggedInUsername !== authorName) {
     return;
@@ -36,9 +44,11 @@ export function renderAdminButtons(parent, authorName, postId) {
   removeButton.addEventListener("click", async () => {
     try {
       await removePost(postId);
-      displayMessage("#deleteMessage", 'Post deleted. Please go to <a href="/feed/">Feed</a>', "success");
+      deletePost(postId);
+      location.href = "/feed";
     } catch (error) {
       console.log("error delete", error);
+      displayMessage("#deleteMessage", `"Something went wrong" ${error}`, "danger");
     }
   });
 

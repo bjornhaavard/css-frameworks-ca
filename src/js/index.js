@@ -2,11 +2,11 @@ import { setLoginFormListener } from "./handlers/login.js";
 import { setRegisterFormListener } from "./handlers/register.js";
 import { displayPosts } from "./handlers/displayPosts.js";
 import * as post from "./api/posts/index.js";
-import { createPostFormListener } from "./handlers/createPost.js";
 import { displayPost } from "./handlers/displayPost.js";
-import { updateFormListener } from "./handlers/updatePost.js";
 import { searchPostHandler } from "./handlers/searchPosts.js";
 import * as handler from "./handlers/index.js";
+import { displayProfileData } from "./components/profile/profileHome.js";
+import { getPostsWithComments } from "./handlers/filter.js";
 
 async function router() {
   const pathname = window.location.pathname;
@@ -20,14 +20,21 @@ async function router() {
       setRegisterFormListener();
       return;
 
+    case "/profile/":
+    case "/profile/index.html":
+      displayProfileData();
+
+      handler.logOut();
+      return;
+
     case "/feed/newPost/":
-      createPostFormListener();
+      handler.createPostFormListener();
 
       return;
 
     case "/feed/edit/":
     case "/feed/edit/index.html":
-      updateFormListener();
+      handler.updateFormListener();
       return;
 
     case "/feed/":
@@ -35,12 +42,13 @@ async function router() {
       displayPosts();
       searchPostHandler();
       handler.sortPostsHandler();
+      getPostsWithComments();
       return;
 
     case "/feed/post/index.html":
     case "/feed/post/":
       displayPost();
-      // renderPost();
+
       return;
   }
 }

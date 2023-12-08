@@ -1,10 +1,11 @@
+import { displayMessage } from "../components/shared/displayMessage.js";
 import { load } from "../storage/index.js";
 
 export function headers() {
   const token = load("token");
 
   if (!token) {
-    throw new Error("No token, pal");
+    throw new Error(displayMessage("#error-message", 'No token, go to <a href="/">Login page</a>', "danger"));
   }
 
   return {
