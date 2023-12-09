@@ -20,7 +20,7 @@ export async function searchPostHandler() {
 
       renderPosts(posts, "#posts-container");
       console.log();
-      displayMessage("#filter-message", `Showing  ${posts.length} posts from search  ${searchInput.value}`, "success");
+      displayMessage("#filter-message", `Showing  ${posts.length} posts from search:  <span style="font-style: italic; text-decoration: underline;">${searchInput.value}</span>`, "success");
     } catch (error) {
       console.log(error);
       displayMessage("#posts-container", `Something went wrong: ${error}`, "danger");
