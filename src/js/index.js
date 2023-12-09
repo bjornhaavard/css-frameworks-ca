@@ -1,12 +1,5 @@
-import { setLoginFormListener } from "./handlers/login.js";
-import { setRegisterFormListener } from "./handlers/register.js";
-import { displayPosts } from "./handlers/displayPosts.js";
-import * as post from "./api/posts/index.js";
-import { displayPost } from "./handlers/displayPost.js";
-import { searchPostHandler } from "./handlers/searchPosts.js";
 import * as handler from "./handlers/index.js";
 import { displayProfileData } from "./components/profile/profileHome.js";
-import { getPostsWithComments } from "./handlers/filter.js";
 
 async function router() {
   const pathname = window.location.pathname;
@@ -14,11 +7,11 @@ async function router() {
   switch (pathname) {
     case "/":
     case "/index.html":
-      setLoginFormListener();
+      handler.setLoginFormListener();
 
       return;
     case "/profile/register/":
-      setRegisterFormListener();
+      handler.setRegisterFormListener();
       return;
 
     case "/profile/":
@@ -40,15 +33,15 @@ async function router() {
 
     case "/feed/":
     case "/feed/index.html":
-      displayPosts();
-      searchPostHandler();
+      handler.displayPosts();
+      handler.searchPostHandler();
       handler.sortPostsHandler();
-      getPostsWithComments();
+      handler.getPostsWithComments();
       return;
 
     case "/feed/post/index.html":
     case "/feed/post/":
-      displayPost();
+      handler.displayPost();
 
       return;
   }

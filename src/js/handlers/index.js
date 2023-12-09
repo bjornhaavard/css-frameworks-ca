@@ -4,3 +4,7 @@ export * from "./login.js";
 export * from "./register.js";
 export * from "./sortPosts.js";
 export * from "./logOut.js";
+export * from "./searchPosts.js";
+export * from "./displayPosts.js";
+export * from "./filter.js";
+export * from "./displayPost.js";
