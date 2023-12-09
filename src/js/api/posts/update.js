@@ -16,6 +16,9 @@ export async function updatePost(postData) {
     method,
     body: JSON.stringify(postData),
   });
+  if (!response.ok) {
+    throw new Error(displayMessage("#message", error.message, "warning"));
+  }
 
   return await response.json();
 }
