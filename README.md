@@ -6,6 +6,8 @@
 
 This is a mock-up social application called alien social for the css frameworks ca
 
+My Trello: https://trello.com/b/IltcCuZl/javascript-2-ca
+
 ## Built with:
 
 - Html
