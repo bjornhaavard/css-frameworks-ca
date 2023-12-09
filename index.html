@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-bs-theme="dark" class="h-100">
   <head>
     <meta charset="UTF-8" />
@@ -11,74 +11,66 @@
     ></script>
     <script type="module" src="/src/js/index.js"></script>
     <title>Alien Social | Login</title>
-    <meta name="description" content="login page">
+    <meta name="description" content="login page" />
     <link rel="stylesheet" href="/dist/css/index.css" />
   </head>
   <body class="d-flex flex-column h-100">
-      <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary rounded" aria-label="navigation">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="/">👽</a>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbars"
-              aria-controls="navbars"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbars">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav nav-pills">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="login" href="/">Login</a>
-                </li>
-              </ul>
-            </div>
+    <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary rounded" aria-label="navigation">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">👽</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbars" aria-controls="navbars" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbars">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav nav-pills">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="login" href="/">Login</a>
+              </li>
+            </ul>
           </div>
-        </nav>
-      </header>
+        </div>
+      </nav>
+    </header>
     <main class="flex-shrink-0">
       <section class="h-100 gradient-custom-2">
-    <div class="container col-xl-10 col-xxl-8 px-4 py-5">
-      <div id="logout-message"></div>
-      <div id="message"></div>
-      <div class="row align-items-center g-lg-5 py-5">
-        <div class="col-lg-7 text-center text-lg-start">
-          <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Alien Social</h1>
-        </div>
-        <div class="col-md-10 mx-auto col-lg-5">
-          <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" id="loginForm"">
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="email" name="email" placeholder="name@noroff.no / name@stud.noroff.no" />
-              <label for="email">Email address</label>
+        <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+          <div id="logout-message"></div>
+          <div id="message"></div>
+          <div class="row align-items-center g-lg-5 py-5">
+            <div class="col-lg-7 text-center text-lg-start">
+              <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Alien Social</h1>
             </div>
-            <div class="form-floating mb-3">
-              <input type="password" class="form-control" id="password" name="password" placeholder="Password" minlength="8" required />
-              <label for="password">Password</label>
-            </div>
-            <div class="checkbox mb-3">
-              <label for=""> <input type="checkbox" name="checkbox" value="remember-me" /> Remember me </label>
-            </div>
-            <button class="w-100 btn btn-lg btn-primary"" type="submit">Login</button>
+            <div class="col-md-10 mx-auto col-lg-5">
+              <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" id="loginForm">
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="email" name="email" placeholder="name@noroff.no / name@stud.noroff.no" required />
+                  <label for="email">Email address</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="password" class="form-control" id="password" name="password" placeholder="Password" minlength="8" required />
+                  <label for="password">Password</label>
+                </div>
+                <div class="checkbox mb-3">
+                  <label for=""> <input type="checkbox" name="checkbox" value="remember-me" /> Remember me </label>
+                </div>
+                <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
 
-            <hr class="my-4" />
+                <hr class="my-4" />
 
-            <p class="text-center text-muted mt-5 mb-0">
-              Don't have an account? <a href="/profile/register/" class="fw-bold text-body"><u>Register here</u></a>
-            </p>
-          </form>
+                <p class="text-center text-muted mt-5 mb-0">
+                  Don't have an account? <a href="/profile/register/" class="fw-bold text-body"><u>Register here</u></a>
+                </p>
+              </form>
+            </div>
+          </div>
         </div>
+      </section>
+    </main>
+    <footer class="footer mt-auto py-3 bg-dark py-3 my-4 border-top">
+      <div class="container d-flex justify-content-center">
+        <span class="text-muted">© 2023 Alien Social </span>
       </div>
-    </div>
-  </section>
-  </main>
-      <footer class="footer mt-auto py-3 bg-dark py-3 my-4 border-top">
-        <div class="container d-flex justify-content-center">
-          <span class="text-muted">© 2023 Alien Social </span>
-        </div>
-      </footer>
+    </footer>
   </body>
 </html>
