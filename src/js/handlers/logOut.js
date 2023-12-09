@@ -17,6 +17,6 @@ export function logOut() {
     storage.remove("token");
     storage.remove("profile");
 
-    location.href = "/?loggedOut=true";
+    location.href = "/";
   });
 }
