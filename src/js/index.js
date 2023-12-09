@@ -15,6 +15,7 @@ async function router() {
     case "/":
     case "/index.html":
       setLoginFormListener();
+
       return;
     case "/profile/register/":
       setRegisterFormListener();
