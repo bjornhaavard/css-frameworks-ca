@@ -30,7 +30,7 @@ export async function displayPosts() {
 
     renderPosts(posts, "#posts-container");
   } catch (error) {
-    displayMessage("#posts-container", error.message, "danger");
+    displayMessage("#error-message", 'Go to <a href="/">Login page</a>', "danger");
     console.log(error);
   }
 }
