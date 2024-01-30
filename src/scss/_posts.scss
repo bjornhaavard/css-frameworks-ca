@@ -6,3 +6,22 @@
     transition: all 0.5s ease-out;
   }
 }
+
+.post-image {
+  max-width: 400px;
+  object-fit: contain;
+  // max-height: 300px;
+}
+
+.posts-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+  justify-content: center;
+  margin: 4rem;
+}
+
+.post-thumbnail {
+  max-width: 20px;
+  max-height: 20px;
+}
