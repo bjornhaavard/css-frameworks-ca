@@ -20,7 +20,6 @@ export async function getPostsWithComments() {
       renderPosts(posts, "#posts-container");
       const filterMessage = document.querySelector("#filter-message");
       if (filterMessage) {
-        // filterMessage.innerHTML = "testing";
         displayMessage("#filter-message", `Showing ${posts.length} posts with comments`, "success");
       }
     });

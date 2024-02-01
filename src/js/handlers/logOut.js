@@ -7,19 +7,16 @@
  * logOut();
  */
 
-import { displayMessage } from "../components/shared/displayMessage.js";
 import * as storage from "../storage/index.js";
 
 export function logOut() {
   const logoutButton = document.querySelector("#logout-button");
   logoutButton.addEventListener("click", async (event) => {
-    console.log(logoutButton);
     event.preventDefault();
 
     storage.remove("token");
     storage.remove("profile");
 
     location.href = "/";
-    displayMessage("#logout-message", "You are logged out", "success");
   });
 }

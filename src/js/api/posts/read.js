@@ -16,8 +16,7 @@ export async function getPosts() {
 
 export async function getPost(id) {
   if (!id) {
-    throw new Error("Get requires a postID");
-    displayMessage("#post-container", "Get requires a postID", "danger");
+    throw new Error(displayMessage("#post-container", "Get requires a postID", "danger"));
   }
 
   const getPostUrl = `${API_SOCIAL_URL}${action}/${id}?_author=true&_comments=true&_reactions=true`;

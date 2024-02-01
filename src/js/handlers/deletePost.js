@@ -17,6 +17,7 @@ export function deletePost(id) {
     displayMessage("#deleteMessage", 'Post deleted. Please go to <a href="/feed/">Feed</a>', "success");
     removePost(id);
   } catch (error) {
+    displayMessage("#deleteMessage", error, "danger");
     console.log("error delete", error);
   }
 }

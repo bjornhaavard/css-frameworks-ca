@@ -19,8 +19,8 @@ export async function searchPostHandler() {
       const posts = await searchPosts(searchQuery);
 
       renderPosts(posts, "#posts-container");
-
-      displayMessage("#filter-message", `Showing ${posts.length} posts from search`, "success");
+      console.log();
+      displayMessage("#filter-message", `Showing  ${posts.length} posts from search:  <span style="font-style: italic; text-decoration: underline;">${searchInput.value}</span>`, "success");
     } catch (error) {
       console.log(error);
       displayMessage("#posts-container", `Something went wrong: ${error}`, "danger");
