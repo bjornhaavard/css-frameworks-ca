@@ -4,7 +4,7 @@
   "description": "A starting point for the CSS Frameworks CA project",
   "scripts": {
     "format": "prettier --write --ext '.html' .",
-    "build": "npm-run-all build:css build:html",
+    "build": "sass src/scss:dist/css",
     "watch": "sass -w src/scss:dist/css"
   },
   "repository": {
