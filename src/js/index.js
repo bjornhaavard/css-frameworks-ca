@@ -5,8 +5,8 @@ async function router() {
   const pathname = window.location.pathname;
 
   switch (pathname) {
-    case "../../":
-    case "../../index.html":
+    case "/":
+    case "/index.html":
       handler.setLoginFormListener();
 
       return;
